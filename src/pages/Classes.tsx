@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 const Classes = () => {
   const schedule = [
-    { time: '6:30 AM - 7:30 AM', type: 'Weight Loss Batch', notes: 'Monday to Saturday only', icon: Heart },
-    { time: '7:30 AM - 8:30 AM', type: 'Regular Batch', notes: '', icon: Users },
-    { time: '9:00 AM - 10:00 AM', type: 'Ladies Batch', notes: '', icon: Users },
-    { time: '10:00 AM - 11:00 AM', type: 'Ladies Batch', notes: '', icon: Users },
-    { time: '11:00 AM - 12:00 PM', type: 'Yoga Therapy', notes: '', icon: Heart },
-    { time: '4:00 PM - 5:00 PM', type: 'Yoga Therapy', notes: '', icon: Heart },
-    { time: '5:00 PM - 6:00 PM', type: 'Regular Batch', notes: '', icon: Users },
-    { time: '6:00 PM - 7:00 PM', type: 'Regular Batch', notes: '', icon: Users },
-    { time: '7:00 PM - 8:00 PM', type: 'Regular Batch', notes: '', icon: Users },
+    { time: '6:30 AM - 7:30 AM', type: 'Weight Loss Batch', notes: 'Monday to Saturday', icon: Heart },
+    { time: '7:30 AM - 8:30 AM', type: 'Regular Batch', notes: 'Monday to Friday', icon: Users },
+    { time: '9:00 AM - 10:00 AM', type: 'Ladies Batch', notes: 'Monday to Friday', icon: Users },
+    { time: '10:00 AM - 11:00 AM', type: 'Ladies Batch', notes: 'Monday to Friday', icon: Users },
+    { time: '11:00 AM - 12:00 PM', type: 'Yoga Therapy', notes: 'Monday to Friday', icon: Heart },
+    { time: '4:00 PM - 5:00 PM', type: 'Yoga Therapy', notes: 'Monday to Friday', icon: Heart },
+    { time: '5:00 PM - 6:00 PM', type: 'Regular Batch', notes: 'Monday to Friday', icon: Users },
+    { time: '6:00 PM - 7:00 PM', type: 'Regular Batch', notes: 'Monday to Friday', icon: Users },
+    { time: '7:00 PM - 8:00 PM', type: 'Regular Batch', notes: 'Monday to Friday', icon: Users },
   ];
 
   const pricing = [
@@ -62,7 +62,7 @@ const Classes = () => {
               Class Schedule
             </h2>
             <p className="text-lg text-muted-foreground">
-              Monday to Friday (Saturday available for Weight Loss Batch)
+              Most classes run Monday to Friday, Weight Loss Batch runs Monday to Saturday
             </p>
           </div>
 
@@ -83,13 +83,11 @@ const Classes = () => {
                       </p>
                     </div>
                   </div>
-                  {class_.notes && (
-                    <div className="hidden sm:block">
-                      <span className="text-sm text-primary font-medium bg-primary/10 px-3 py-1 rounded-full">
-                        {class_.notes}
-                      </span>
-                    </div>
-                  )}
+                  <div className="hidden sm:block">
+                    <span className="text-sm text-primary font-medium bg-primary/10 px-3 py-1 rounded-full">
+                      {class_.notes}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -173,21 +171,12 @@ const Classes = () => {
               Contact us to book your spot or schedule a free consultation to find 
               the perfect class for your needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild
-                className="bg-primary hover:bg-accent text-primary-foreground px-8 py-3 rounded-full font-medium text-lg shadow-lg transition-all duration-300 hover:shadow-xl"
-              >
-                <Link to="/contact">Book Now</Link>
-              </Button>
-              <Button 
-                variant="outline"
-                asChild
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full font-medium text-lg transition-all duration-300"
-              >
-                <Link to="/contact">Free Consultation</Link>
-              </Button>
-            </div>
+            <Button 
+              asChild
+              className="bg-primary hover:bg-accent text-primary-foreground px-8 py-3 rounded-full font-medium text-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+            >
+              <Link to="/contact">Get in Touch</Link>
+            </Button>
           </div>
         </div>
       </section>

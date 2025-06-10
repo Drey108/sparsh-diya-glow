@@ -10,10 +10,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
     { name: 'Classes', path: '/classes' },
     { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Gallery', path: '/gallery' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -47,10 +47,13 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Book Appointment Button */}
+          {/* Get in Touch Button */}
           <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-accent text-primary-foreground px-6 py-2 rounded-full font-medium shadow-lg transition-all duration-300 hover:shadow-xl">
-              Book an Appointment
+            <Button 
+              asChild
+              className="bg-primary hover:bg-accent text-primary-foreground px-6 py-2 rounded-full font-medium shadow-lg transition-all duration-300 hover:shadow-xl"
+            >
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
 
@@ -81,8 +84,11 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-primary hover:bg-accent text-primary-foreground px-6 py-2 rounded-full font-medium w-fit">
-                Book an Appointment
+              <Button 
+                asChild
+                className="bg-primary hover:bg-accent text-primary-foreground px-6 py-2 rounded-full font-medium w-fit"
+              >
+                <Link to="/contact" onClick={() => setIsOpen(false)}>Get in Touch</Link>
               </Button>
             </div>
           </div>

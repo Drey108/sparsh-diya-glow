@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Full Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -13,24 +13,26 @@ const Home = () => {
             backgroundImage: "url('/lovable-uploads/b951291c-1f2c-4704-9f2b-24adec83bffc.png')",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <div className="glass-panel-warm rounded-3xl p-12 max-w-4xl mx-auto animate-fade-in">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <p className="text-primary font-medium text-lg">Health to everyone</p>
-                <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                  Explore the wonders of{' '}
-                  <span className="text-primary">inner peace</span> of mind.
-                </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  Through a combination of physical postures, breath control, and
-                  meditation, yoga helps to harmonize the body and mind,
-                  fostering overall well-being.
-                </p>
+        {/* Hero Content - Left Aligned */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+          <div className="max-w-2xl">
+            <div className="glass-panel-warm rounded-3xl p-8 lg:p-12 animate-fade-in">
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <p className="text-primary font-medium text-lg">Health to everyone</p>
+                  <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                    Explore the wonders of{' '}
+                    <span className="text-primary">inner peace</span> of mind.
+                  </h1>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Through a combination of physical postures, breath control, and
+                    meditation, yoga helps to harmonize the body and mind,
+                    fostering overall well-being.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

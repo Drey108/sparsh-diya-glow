@@ -1,138 +1,125 @@
-
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { MapPin, MessageCircle, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
-    <footer className="relative mt-20">
-      {/* Glass effect footer */}
-      <div className="glass-panel-warm border-t border-white/30 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
-            {/* Left Section - Logo & Tagline */}
-            <div className="space-y-6">
-              <Link to="/" className="flex items-center space-x-3">
+    <footer className="relative mt-0">
+      {/* Minimalist glass footer */}
+      <div className="glass-panel-warm border-t border-white/20 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          
+          {/* Main Content */}
+          <div className="grid lg:grid-cols-3 gap-16 mb-16">
+            
+            {/* Brand Section */}
+            <div className="space-y-8">
+              <Link to="/" className="inline-flex items-center space-x-3 group">
                 <img 
                   src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
                   alt="Sparsh Yoga Logo" 
-                  className="w-12 h-12 object-contain"
+                  className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 <div>
-                  <span className="text-2xl font-serif font-bold text-foreground">Sparsh</span>
-                  <span className="text-xl font-sans text-foreground ml-1">Yoga</span>
+                  <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
+                    Sparsh
+                  </span>
+                  <span className="text-xl text-foreground/90 ml-1" style={{ fontFamily: 'Manrope, sans-serif' }}>
+                    Yoga
+                  </span>
                 </div>
               </Link>
-              <p className="text-foreground/80 font-serif italic leading-relaxed">
-                "Experience Calm. Practice Wellness."
+              <p className="text-foreground/70 leading-relaxed max-w-sm" style={{ fontFamily: 'Manrope, sans-serif' }}>
+                Experience calm. Practice wellness. Join our community of mindful practitioners.
               </p>
             </div>
 
-            {/* Middle Section 1 - Quick Links */}
-            <div className="space-y-6">
-              <h3 className="text-lg font-serif font-semibold text-foreground">Quick Links</h3>
-              <div className="space-y-3">
-                <Link 
-                  to="/" 
-                  className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
-                >
-                  Home
-                </Link>
-                <Link 
-                  to="/classes" 
-                  className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
-                >
-                  Classes
-                </Link>
-                <Link 
-                  to="/testimonials" 
-                  className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
-                >
-                  Testimonials
-                </Link>
-                <Link 
-                  to="/faq" 
-                  className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
-                >
-                  FAQ
-                </Link>
-                <Link 
-                  to="/gallery" 
-                  className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
-                >
-                  Gallery
-                </Link>
-              </div>
+            {/* Navigation */}
+            <div className="space-y-8">
+              <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
+                Explore
+              </h3>
+              <nav className="space-y-4">
+                {['Home', 'Classes', 'Testimonials', 'Gallery'].map((item) => (
+                  <Link 
+                    key={item}
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    className="block text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'Manrope, sans-serif' }}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </nav>
             </div>
 
-            {/* Middle Section 2 - Contact Info */}
-            <div className="space-y-6">
-              <h3 className="text-lg font-serif font-semibold text-foreground">Contact Info</h3>
+            {/* Contact & CTA */}
+            <div className="space-y-8">
+              <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
+                Connect
+              </h3>
+              
+              {/* Contact Info */}
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground/80 font-sans">
-                    JP Nagar, Bangalore, Karnataka
+                  <MapPin className="w-4 h-4 text-primary/80 mt-1 flex-shrink-0" />
+                  <span className="text-foreground/70 text-sm" style={{ fontFamily: 'Manrope, sans-serif' }}>
+                    JP Nagar, Bangalore
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MessageCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <MessageCircle className="w-4 h-4 text-primary/80 flex-shrink-0" />
                   <a 
                     href="https://wa.me/919876543210" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300 font-sans"
+                    className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'Manrope, sans-serif' }}
                   >
-                    WhatsApp Us
+                    WhatsApp
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground/80 font-sans">info@sparshyoga.com</span>
+                  <Mail className="w-4 h-4 text-primary/80 flex-shrink-0" />
+                  <span className="text-foreground/70 text-sm" style={{ fontFamily: 'Manrope, sans-serif' }}>
+                    info@sparshyoga.com
+                  </span>
                 </div>
               </div>
-            </div>
 
-            {/* Right Section - CTA */}
-            <div className="space-y-6">
-              <h3 className="text-lg font-serif font-semibold text-foreground">Ready to Start?</h3>
-              <div className="space-y-4">
-                <p className="text-foreground/80 font-sans text-sm">
-                  Join our welcoming community and begin your yoga journey today.
-                </p>
-                <Button 
-                  asChild
-                  className="w-full glass-panel-warm border border-white/30 bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary shadow-lg hover:shadow-xl transition-all duration-300 font-sans"
-                >
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center justify-center"
-                  >
-                    Book Free Trial
-                  </a>
-                </Button>
-              </div>
+              {/* CTA Button */}
+              <Button
+                asChild
+                className="glass-panel-warm border border-white/30 bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary shadow-sm hover:shadow-md transition-all duration-300 px-6 py-2 text-sm"
+                style={{ fontFamily: 'Sora, sans-serif' }}
+              >
+                <Link to="/contact" className="inline-flex items-center justify-center">
+                  Contact Us
+                </Link>
+              </Button>
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="border-t border-white/20 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-foreground/60 text-sm font-sans">
+          {/* Minimal Bottom Section */}
+          <div className="border-t border-white/10 pt-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+              <p className="text-foreground/50 text-xs" style={{ fontFamily: 'Manrope, sans-serif' }}>
                 © 2024 Sparsh Yoga. All rights reserved.
               </p>
-              <div className="flex space-x-8">
+              <div className="flex space-x-6">
                 <Link 
-                  to="/contact" 
-                  className="text-foreground/60 hover:text-primary text-sm transition-colors duration-300 font-sans"
+                  to="/privacy" 
+                  className="text-foreground/50 hover:text-primary text-xs transition-colors duration-300"
+                  style={{ fontFamily: 'Manrope, sans-serif' }}
                 >
-                  Privacy Policy
+                  Privacy
                 </Link>
                 <Link 
-                  to="/contact" 
-                  className="text-foreground/60 hover:text-primary text-sm transition-colors duration-300 font-sans"
+                  to="/terms" 
+                  className="text-foreground/50 hover:text-primary text-xs transition-colors duration-300"
+                  style={{ fontFamily: 'Manrope, sans-serif' }}
                 >
-                  Terms of Service
+                  Terms
                 </Link>
               </div>
             </div>

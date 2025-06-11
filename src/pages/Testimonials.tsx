@@ -1,47 +1,41 @@
 
-import { Star, Quote } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
 const Testimonials = () => {
   const testimonials = [
     {
       name: 'Priya Sharma',
       batch: 'Ladies Batch',
-      rating: 5,
       text: 'Sparsh Yoga has been a life-changing experience for me. The instructors are incredibly knowledgeable and create such a warm, welcoming environment. I feel stronger and more balanced than ever before.',
       duration: '6 months'
     },
     {
       name: 'Rajesh Kumar',
       batch: 'Weight Loss Batch',
-      rating: 5,
       text: 'I started the 6:30 AM weight loss batch 8 months ago and have lost 15 kgs! The combination of yoga poses and breathing techniques has transformed my body and mind. Highly recommended!',
       duration: '8 months'
     },
     {
       name: 'Anitha Reddy',
       batch: 'Yoga Therapy',
-      rating: 5,
       text: 'After suffering from chronic back pain, the yoga therapy sessions have been a blessing. The personalized attention and therapeutic approach have significantly improved my quality of life.',
       duration: '1 year'
     },
     {
       name: 'Vikram Singh',
       batch: 'Regular Batch',
-      rating: 5,
       text: 'The evening regular batch fits perfectly with my work schedule. The studio has a peaceful atmosphere, and I always leave feeling refreshed and stress-free. Great value for money!',
       duration: '4 months'
     },
     {
       name: 'Deepa Nair',
       batch: 'Online Classes',
-      rating: 5,
       text: 'The online Zoom classes are fantastic! Even from home, I feel connected to the instructor and other students. The quality of instruction is excellent, and the timings are very convenient.',
       duration: '3 months'
     },
     {
       name: 'Suresh Patel',
       batch: 'Personal Training',
-      rating: 5,
       text: 'The personal training sessions have been incredibly valuable. Having one-on-one attention helped me correct my postures and advance my practice much faster than I expected.',
       duration: '2 months'
     }
@@ -67,13 +61,8 @@ const Testimonials = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="glass-panel-warm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex text-primary">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
-                    ))}
-                  </div>
-                  <Quote className="w-8 h-8 text-primary/30" />
+                <div className="flex justify-end mb-6">
+                  <Quote className="w-8 h-8 text-orange-400" />
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6 italic">

@@ -27,7 +27,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            
+            <img 
+                  src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
+                  alt="Sparsh Yoga Logo" 
+                  className="w-12 h-12 object-contain"
+                />
             <span className="text-foreground text-xl font-bold">Sparsh</span>
           </Link>
 

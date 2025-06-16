@@ -72,7 +72,6 @@ const Classes = () => {
           <div className="glass-panel-warm rounded-xl sm:rounded-3xl p-4 sm:p-8 shadow-xl overflow-hidden">
             <div className="overflow-x-auto">
               <div className="relative">
-                <ScrollIndicator direction="horizontal" />
                 <table className="w-full border-separate border-spacing-0">
                 <thead>
                   <tr>
@@ -136,7 +135,7 @@ const Classes = () => {
 
           <div className="glass-panel-warm rounded-xl sm:rounded-3xl p-4 sm:p-8 shadow-xl overflow-x-auto border border-orange-200/30 backdrop-blur-md">
             <div className="relative">
-              <ScrollIndicator direction="horizontal" />
+          
             <div className="min-w-full">
               <table className="w-full">
                 <thead>
@@ -214,7 +213,10 @@ const Classes = () => {
           </div>
         </div>
       </section>
+      {/* Scroll Indicator */}
+      <ScrollIndicator />
     </div>
+    
   );
 };
 

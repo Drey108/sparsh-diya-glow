@@ -1,4 +1,3 @@
-
 import { Heart, Users, Clock, Target, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -26,6 +25,7 @@ const Home = () => {
       setActiveAccordion(undefined);
     }
   });
+
   return (
     <div className="min-h-screen">
       {/* Minimal Hero Section - Just Text and CTAs */}
@@ -195,7 +195,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Us Section Redesigned with Zigzag Layout */}
+      {/* About Us Section with Our Instructors */}
       <section className="py-12 sm:py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -368,7 +368,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FAQ Section Redesigned */}
+      {/* FAQ Section Redesigned with Box Style */}
       <section id="faq" className="py-12 sm:py-20 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
@@ -380,77 +380,53 @@ const Home = () => {
             </p>
           </div>
 
-          <div
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <Accordion
-              type="single"
-              collapsible
-              className="space-y-4"
-              value={activeAccordion}
-              onValueChange={setActiveAccordion}
-            >
-            <AccordionItem value="item-1" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-4 sm:px-6 py-4 text-base sm:text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline active:bg-black/5">
-                🧘‍♀️ What types of yoga classes do you offer?
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-sm sm:text-base text-gray-600">
-                We offer a variety of classes including Weight Loss Batch, Regular Batch, Ladies Batch,
-                Yoga Therapy sessions, Pregnancy Yoga, and specialized programs for stress and anger management.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                🌱 Do I need prior yoga experience to join?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 text-gray-600">
-                No prior experience is needed. Our classes accommodate all levels, from beginners to advanced practitioners.
-                Our instructors provide modifications and guidance suitable for your level.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                🎒 What should I bring to class?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 text-gray-600">
-                We recommend bringing a yoga mat, comfortable clothing, and a water bottle. If you don't have a mat,
-                we have some available for use at the studio.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                📅 How often should I practice yoga?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 text-gray-600">
-                For beginners, we recommend 2-3 classes per week. As you build strength and flexibility,
-                you can increase frequency. Listen to your body and practice at a pace that feels right for you.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                💻 Do you offer online classes?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 text-gray-600">
-                Yes, we offer online classes via Zoom for several of our regular batches.
-                These classes provide the same quality instruction as our in-studio sessions.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="orange-accent-card rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                🤰 Is yoga safe during pregnancy?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 text-gray-600">
-                Yes! We offer specialized prenatal yoga classes designed specifically for expecting mothers.
-                These classes focus on safe poses and breathing techniques that support both mother and baby.
-              </AccordionContent>
-            </AccordionItem>
-            </Accordion>
+          <div className="space-y-6">
+            {[
+              {
+                emoji: '🧘‍♀️',
+                question: 'What types of yoga classes do you offer?',
+                answer: 'We offer a variety of classes including Weight Loss Batch, Regular Batch, Ladies Batch, Yoga Therapy sessions, Pregnancy Yoga, and specialized programs for stress and anger management.'
+              },
+              {
+                emoji: '🌱',
+                question: 'Do I need prior yoga experience to join?',
+                answer: 'No prior experience is needed. Our classes accommodate all levels, from beginners to advanced practitioners. Our instructors provide modifications and guidance suitable for your level.'
+              },
+              {
+                emoji: '🎒',
+                question: 'What should I bring to class?',
+                answer: 'We recommend bringing a yoga mat, comfortable clothing, and a water bottle. If you don\'t have a mat, we have some available for use at the studio.'
+              },
+              {
+                emoji: '📅',
+                question: 'How often should I practice yoga?',
+                answer: 'For beginners, we recommend 2-3 classes per week. As you build strength and flexibility, you can increase frequency. Listen to your body and practice at a pace that feels right for you.'
+              },
+              {
+                emoji: '💻',
+                question: 'Do you offer online classes?',
+                answer: 'Yes, we offer online classes via Zoom for several of our regular batches. These classes provide the same quality instruction as our in-studio sessions.'
+              },
+              {
+                emoji: '🤰',
+                question: 'Is yoga safe during pregnancy?',
+                answer: 'Yes! We offer specialized prenatal yoga classes designed specifically for expecting mothers. These classes focus on safe poses and breathing techniques that support both mother and baby.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="orange-accent-card p-6 sm:p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl flex-shrink-0">{faq.emoji}</div>
+                  <div className="flex-1">
+                    <h3 className="section-title text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

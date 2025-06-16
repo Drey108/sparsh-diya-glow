@@ -1,7 +1,7 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, Download, Users, Globe, BookOpen, Heart } from 'lucide-react';
 
 const YogaInstructorCourse = () => {
@@ -36,6 +36,33 @@ const YogaInstructorCourse = () => {
     {
       quote: "Highly recommended for anyone serious about yoga. Teachers are very knowledgeable and friendly.",
       author: "Ravi K., 2024 Batch"
+    }
+  ];
+
+  const faqData = [
+    {
+      question: "Can I pursue the YIC course while working or studying?",
+      answer: "Yes, the course is designed with flexibility in mind. You can access recorded lectures anytime and attend live sessions scheduled conveniently on weekends."
+    },
+    {
+      question: "Is there an age requirement to enroll in the course?",
+      answer: "Yes, applicants must be at least 18 years old to join this certification program."
+    },
+    {
+      question: "Do I need prior experience or knowledge of yoga to join?",
+      answer: "No prior yoga experience is required. The course is structured to guide both beginners and seasoned practitioners through foundational to advanced yogic practices."
+    },
+    {
+      question: "What topics are covered in the course curriculum?",
+      answer: "The comprehensive curriculum includes: Asanas (Postures), Pranayama (Breathing Techniques), Sat Kriyas (Cleansing Techniques), Meditation Practices, Teaching Methodology, and Studio Management (Running online/offline yoga businesses). Additionally, expert guest lectures provide deeper insights into yoga philosophy and professional practice."
+    },
+    {
+      question: "How valid is the certification I will receive?",
+      answer: "Your certification is accredited by S-VYASA University and SparshYoga, recognized both nationally and internationally, and is valid indefinitely."
+    },
+    {
+      question: "Will the course support me in starting my own yoga studio?",
+      answer: "Yes. As a graduate, you will gain access to a network of 1000+ yoga centers and receive guidance through bonus content and additional modules on setting up and managing your own yoga studio—both online and offline."
     }
   ];
 
@@ -306,6 +333,31 @@ const YogaInstructorCourse = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-b from-soft-gray to-warm-cream">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+            ✨ Frequently Asked Questions (FAQ)
+          </h2>
+          <Card className="clean-card">
+            <CardContent className="p-8">
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {faqData.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
+                    <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary transition-colors">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-text-secondary leading-relaxed pt-4">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

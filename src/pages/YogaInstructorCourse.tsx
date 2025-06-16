@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -95,7 +96,7 @@ const YogaInstructorCourse = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-primary hover:bg-accent text-primary-foreground px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="minimal-button w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600"
               >
                 <a href="https://forms.gle/xEGi4UTWiQqTXGgb8" target="_blank" rel="noopener noreferrer">
                   👉 Join the Next YIC Batch
@@ -105,7 +106,7 @@ const YogaInstructorCourse = () => {
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full shadow-xl backdrop-blur-sm"
+                className="orange-outline w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 h-auto text-base sm:text-lg bg-white/80 hover:bg-orange-50 text-gray-900 hover:text-orange-600"
               >
                 <a href="https://docs.google.com/document/d/1c1LsKir2O85NLzI8XccnufKJWZtMmT3dzzn_p7DrWkE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Download className="w-5 h-5 mr-2" />
@@ -118,21 +119,21 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-b from-warm-cream to-soft-gray">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <h2 className="section-title text-4xl sm:text-5xl text-foreground mb-8">
+              <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-8">
                 📚 About the Yoga Instructor Course
               </h2>
-              <div className="space-y-6 text-lg text-text-secondary">
+              <div className="space-y-6 text-lg text-gray-600">
                 <p>200-hour certified course, affiliated with VYASA University, Bangalore</p>
                 <p>Ideal for yoga enthusiasts, aspiring teachers, wellness professionals & spiritual seekers</p>
                 <p>Taught by experienced faculty with structured guidance</p>
               </div>
             </div>
             <div className="mt-12 lg:mt-0">
-              <Card className="clean-card">
+              <Card className="orange-accent-card">
                 <CardContent className="p-8 text-center">
                   <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-orange-200 to-orange-300 rounded-2xl flex items-center justify-center">
                     <span className="text-4xl">🏆</span>
@@ -147,19 +148,19 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Unique Features */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             🎓 What Makes This Course Unique?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {uniqueFeatures.map((feature, index) => (
-              <Card key={index} className="clean-card text-center">
+              <Card key={index} className="orange-accent-card text-center">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full flex items-center justify-center text-orange-600">
                     {feature.icon}
                   </div>
-                  <p className="text-foreground font-medium">{feature.text}</p>
+                  <p className="text-gray-900 font-medium">{feature.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -168,24 +169,24 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Curriculum */}
-      <section className="py-20 bg-gradient-to-b from-soft-gray to-warm-cream">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             🧠 Course Curriculum Overview
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {curriculumModules.map((module, index) => (
-              <Card key={index} className="clean-card text-center">
+              <Card key={index} className="orange-accent-card text-center">
                 <CardContent className="p-8">
                   <div className="text-6xl mb-4">{module.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{module.title}</h3>
-                  <p className="text-text-secondary">{module.description}</p>
+                  <p className="text-gray-600">{module.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <Card className="clean-card">
+          <Card className="orange-accent-card">
             <CardHeader>
               <CardTitle className="text-2xl">💡 Additional Learning Topics</CardTitle>
             </CardHeader>
@@ -193,8 +194,8 @@ const YogaInstructorCourse = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 {additionalTopics.map((topic, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-foreground">{topic}</span>
+                    <CheckCircle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                    <span className="text-gray-900">{topic}</span>
                   </div>
                 ))}
               </div>
@@ -204,12 +205,12 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Course Details Table */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             🕰️ Course Details
           </h2>
-          <Card className="clean-card">
+          <Card className="orange-accent-card">
             <CardContent className="p-0">
               <Table>
                 <TableHeader>
@@ -247,7 +248,7 @@ const YogaInstructorCourse = () => {
             <Button 
               asChild 
               size="lg" 
-              className="bg-primary hover:bg-accent text-primary-foreground px-12 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="minimal-button px-12 py-4 text-lg bg-orange-500 hover:bg-orange-600"
             >
               <a href="https://forms.gle/xEGi4UTWiQqTXGgb8" target="_blank" rel="noopener noreferrer">
                 🎓 Enroll Now – Limited Seats Only
@@ -258,9 +259,9 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Why Learn with SparshYoga */}
-      <section className="py-20 bg-gradient-to-b from-warm-cream to-soft-gray">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             🧑‍🏫 Why Learn with SparshYoga?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -271,11 +272,11 @@ const YogaInstructorCourse = () => {
               'Lifetime access to community groups (WhatsApp/Telegram)',
               'Career support: Teaching gigs, workshops, referrals for higher studies'
             ].map((point, index) => (
-              <Card key={index} className="clean-card">
+              <Card key={index} className="orange-accent-card">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-foreground font-medium">{point}</span>
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">{point}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -285,28 +286,28 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Learning Options */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             📍 Where Can You Learn?
           </h2>
           <div className="grid lg:grid-cols-2 gap-12">
-            <Card className="clean-card">
+            <Card className="orange-accent-card">
               <CardContent className="p-8 text-center">
                 <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl flex items-center justify-center">
                   <span className="text-4xl">🌐</span>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">Online</h3>
-                <p className="text-text-secondary">Live/Recorded classes from anywhere in the world</p>
+                <p className="text-gray-600">Live/Recorded classes from anywhere in the world</p>
               </CardContent>
             </Card>
-            <Card className="clean-card">
+            <Card className="orange-accent-card">
               <CardContent className="p-8 text-center">
                 <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-200 to-green-300 rounded-2xl flex items-center justify-center">
                   <span className="text-4xl">🧘</span>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">Offline</h3>
-                <p className="text-text-secondary">At SparshYoga Center, JP Nagar 6th Phase, Bangalore</p>
+                <p className="text-gray-600">At SparshYoga Center, JP Nagar 6th Phase, Bangalore</p>
               </CardContent>
             </Card>
           </div>
@@ -314,19 +315,19 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-b from-soft-gray to-warm-cream">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             💬 Student Testimonials
           </h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="testimonial-card">
                 <CardContent className="p-8">
-                  <blockquote className="text-lg italic text-foreground mb-6">
+                  <blockquote className="text-lg italic text-gray-900 mb-6">
                     "{testimonial.quote}"
                   </blockquote>
-                  <footer className="text-text-secondary font-medium">
+                  <footer className="text-gray-600 font-medium">
                     – {testimonial.author}
                   </footer>
                 </CardContent>
@@ -337,20 +338,20 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-soft-gray to-warm-cream">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-4xl sm:text-5xl text-center text-foreground mb-16">
+          <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             ✨ Frequently Asked Questions (FAQ)
           </h2>
-          <Card className="clean-card">
+          <Card className="orange-accent-card">
             <CardContent className="p-8">
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-                    <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary transition-colors">
+                    <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 hover:text-orange-600 transition-colors">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-text-secondary leading-relaxed pt-4">
+                    <AccordionContent className="text-gray-600 leading-relaxed pt-4">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -362,16 +363,16 @@ const YogaInstructorCourse = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="section-title text-4xl sm:text-5xl text-foreground mb-12">
+          <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-12">
             🚀 Ready to Begin Your Yoga Journey?
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
             <Button 
               asChild 
               size="lg" 
-              className="bg-primary hover:bg-accent text-primary-foreground px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="minimal-button px-8 py-4 text-lg bg-orange-500 hover:bg-orange-600"
             >
               <a href="https://forms.gle/xEGi4UTWiQqTXGgb8" target="_blank" rel="noopener noreferrer">
                 🌼 Apply Now
@@ -381,7 +382,7 @@ const YogaInstructorCourse = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-full shadow-lg"
+              className="orange-outline px-8 py-4 text-lg bg-white/80 hover:bg-orange-50 text-gray-900 hover:text-orange-600"
             >
               <a href="https://forms.gle/xEGi4UTWiQqTXGgb8" target="_blank" rel="noopener noreferrer">
                 💌 Talk to an Advisor
@@ -391,7 +392,7 @@ const YogaInstructorCourse = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-primary/30 text-primary hover:bg-primary/10 px-8 py-4 text-lg rounded-full shadow-lg"
+              className="orange-outline px-8 py-4 text-lg bg-white/80 hover:bg-orange-50 text-gray-900 hover:text-orange-600"
             >
               <a href="https://docs.google.com/document/d/1c1LsKir2O85NLzI8XccnufKJWZtMmT3dzzn_p7DrWkE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Download className="w-5 h-5 mr-2" />

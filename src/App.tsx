@@ -11,7 +11,7 @@ import Classes from "./pages/Classes";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import FAQ from "./pages/FAQ";
+import YogaInstructorCourse from "./pages/YogaInstructorCourse";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,7 +31,7 @@ const App = () => (
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/faq" element={<FAQ />} />
+              <Route path="/YIC" element={<YogaInstructorCourse />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

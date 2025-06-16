@@ -1,45 +1,67 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navItems = [{
-    name: 'Home',
-    path: '/'
-  }, {
-    name: 'Classes',
-    path: '/classes'
-  }, {
-    name: 'Testimonials',
-    path: '/testimonials'
-  }, {
-    name: 'FAQ',
-    path: '/#faq'
-  }, {
-    name: 'Gallery',
-    path: '/gallery'
-  }];
+
+  const navItems = [
+    {
+      name: 'Home',
+      path: '/'
+    },
+    {
+      name: 'Classes',
+      path: '/classes'
+    },
+    {
+      name: 'Testimonials',
+      path: '/testimonials'
+    },
+    {
+      name: 'Gallery',
+      path: '/gallery'
+    },
+    {
+      name: 'Yoga Instructor Course',
+      path: '/YIC',
+      shortName: 'YIC'
+    }
+  ];
+
   const isActive = (path: string) => location.pathname === path;
-  return <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
       <nav className="max-w-7xl mx-auto glass-panel-warm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-                  src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
-                  alt="Sparsh Yoga Logo" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-                />
+              src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
+              alt="Sparsh Yoga Logo" 
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+            />
             <span className="text-foreground text-xl font-bold">Sparsh</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(item => <Link key={item.name} to={item.path} className={`transition-colors duration-200 font-medium ${isActive(item.path) ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
-                {item.name}
-              </Link>)}
+            {navItems.map(item => (
+              <Link 
+                key={item.name} 
+                to={item.path} 
+                className={`transition-colors duration-200 font-medium ${
+                  isActive(item.path) ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
+              >
+                <span className="hidden lg:inline">{item.name}</span>
+                <span className="lg:hidden">{item.shortName || item.name}</span>
+              </Link>
+            ))}
           </div>
 
           {/* Get in Touch Button */}
@@ -60,7 +82,8 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && <div className="md:hidden mt-4 pt-4 border-t border-white/20">
+        {isOpen && (
+          <div className="md:hidden mt-4 pt-4 border-t border-white/20">
             <div className="flex flex-col space-y-6">
               {navItems.map(item => (
                 <Link
@@ -84,8 +107,11 @@ const Navigation = () => {
                 <Link to="/contact" onClick={() => setIsOpen(false)}>Get in Touch</Link>
               </Button>
             </div>
-          </div>}
+          </div>
+        )}
       </nav>
-    </header>;
+    </header>
+  );
 };
+
 export default Navigation;

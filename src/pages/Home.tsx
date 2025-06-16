@@ -1,3 +1,4 @@
+
 import { Heart, Users, Clock, Target, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -74,7 +75,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
-              Why Choose Sparsh Yoga?
+              ⭐ Why Choose Sparsh Yoga?
             </h2>
             <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
               Experience the transformative power of yoga in our warm, welcoming space
@@ -126,12 +127,80 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Improved About Section */}
+      {/* Services Section */}
       <section className="py-12 sm:py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
-              About Sparsh Yoga
+              🧘‍♂️ Our Services
+            </h2>
+            <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+              Discover our range of specialized yoga programs designed to meet your unique wellness needs.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            {[
+              {
+                emoji: '🧘‍♀️',
+                title: 'Yoga for Pregnancy',
+                description: 'Safe and gentle yoga practices designed specifically for expecting mothers'
+              },
+              {
+                emoji: '🔥',
+                title: 'Yoga for Weight Loss',
+                description: 'Dynamic sequences and poses to boost metabolism and support healthy weight management'
+              },
+              {
+                emoji: '🛡️',
+                title: 'Personalized Guidance for Physical Problems',
+                description: 'Specialized support for back pain, stiffness, joint issues, and other physical concerns'
+              },
+              {
+                emoji: '😌',
+                title: 'Yoga for Stress Management',
+                description: 'Calming practices to reduce stress, anxiety, and promote mental well-being'
+              },
+              {
+                emoji: '😠',
+                title: 'Yoga for Anger Management',
+                description: 'Mindful techniques to help manage emotions and cultivate inner peace'
+              },
+              {
+                emoji: '✨',
+                title: 'More Services Coming Soon...',
+                description: 'We are continuously expanding our offerings to serve your wellness journey better'
+              }
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="orange-accent-card p-6 sm:p-8 text-center"
+              >
+                <div className="text-4xl mb-4">{service.emoji}</div>
+                <h3 className="section-title text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button asChild className="minimal-button text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600">
+              <Link to="/contact">👉 Book a Free Trial Class</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section Redesigned with Zigzag Layout */}
+      <section className="py-12 sm:py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
+              🌿 About Us
             </h2>
             <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
               Located in the heart of JP Nagar, Bangalore, Sparsh Yoga is your sanctuary for 
@@ -142,7 +211,7 @@ const Home = () => {
           {/* Our Story Section */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
             <div className="space-y-6">
-              <h3 className="section-title text-xl sm:text-2xl md:text-3xl text-gray-900">Our Story</h3>
+              <h3 className="section-title text-xl sm:text-2xl md:text-3xl text-gray-900">🌿 Our Story</h3>
               <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
                 Founded with the vision of bringing authentic yoga practices to the modern world, 
                 Sparsh Yoga has been serving the JP Nagar community with dedication and passion. 
@@ -155,7 +224,6 @@ const Home = () => {
               </p>
             </div>
             
-            {/* Improved image layout */}
             <div className="relative">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -172,24 +240,23 @@ const Home = () => {
           </div>
 
           {/* Our Mission Section */}
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            {/* Improved image layout for mission */}
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center text-gray-500">
                     <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Users className="w-8 h-8 text-orange-500" />
+                      <Target className="w-8 h-8 text-orange-500" />
                     </div>
-                    <p className="font-medium">Our Team</p>
-                    <p className="text-sm">Certified yoga instructors</p>
+                    <p className="font-medium">Our Mission</p>
+                    <p className="text-sm">Wellness for everyone</p>
                   </div>
                 </div>
               </div>
             </div>
             
             <div className="space-y-6 order-1 lg:order-2">
-              <h3 className="section-title text-2xl md:text-3xl text-gray-900">Our Mission</h3>
+              <h3 className="section-title text-2xl md:text-3xl text-gray-900">⭐ Our Mission</h3>
               <p className="text-gray-600 leading-relaxed text-lg">
                 To create a community where individuals can discover their inner strength, 
                 achieve physical wellness, and find mental peace through the ancient practice of yoga.
@@ -210,15 +277,103 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* Meet Our Instructors Section */}
+          <div className="space-y-12 sm:space-y-20">
+            <div className="text-center">
+              <h3 className="section-title text-2xl md:text-3xl text-gray-900 mb-8">🧑‍🏫 Meet Our Instructors</h3>
+              <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                Our certified instructors bring years of experience and deep knowledge of traditional yoga practices.
+              </p>
+            </div>
+
+            {/* Instructor 1 */}
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              <div className="relative">
+                <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <Users className="w-8 h-8 text-orange-500" />
+                      </div>
+                      <p className="font-medium">Instructor Photo</p>
+                      <p className="text-sm">Certified Yoga Teacher</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <h4 className="section-title text-xl sm:text-2xl text-gray-900">[Instructor Name]</h4>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  [Brief bio and background will be added here. Specialization in Therapy Yoga, 
+                  with extensive experience in helping students overcome physical challenges through yoga.]
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <Award className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Specialization: Therapy Yoga & Physical Rehabilitation</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Clock className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Experience: [Years] of dedicated teaching</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Heart className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Teaching Philosophy: [Philosophy will be added]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Instructor 2 */}
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              <div className="relative order-2 lg:order-1">
+                <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <Users className="w-8 h-8 text-orange-500" />
+                      </div>
+                      <p className="font-medium">Instructor Photo</p>
+                      <p className="text-sm">Certified Yoga Teacher</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-6 order-1 lg:order-2">
+                <h4 className="section-title text-xl sm:text-2xl text-gray-900">[Instructor Name]</h4>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  [Brief bio and background will be added here. Specialization in Prenatal Yoga, 
+                  with expertise in guiding expecting mothers through safe and beneficial practices.]
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <Award className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Specialization: Prenatal Yoga & Women's Wellness</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Clock className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Experience: [Years] of specialized training</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Heart className="w-5 h-5 text-orange-500" />
+                    <span className="text-gray-700">Teaching Philosophy: [Philosophy will be added]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-12 sm:py-20 px-4 bg-white">
+      {/* FAQ Section Redesigned */}
+      <section id="faq" className="py-12 sm:py-20 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
-              Frequently Asked Questions
+              ❓ Frequently Asked Questions
             </h2>
             <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
               Find answers to common questions about our yoga classes and practices
@@ -236,19 +391,19 @@ const Home = () => {
               value={activeAccordion}
               onValueChange={setActiveAccordion}
             >
-            <AccordionItem value="item-1" className="glass-panel-warm rounded-xl overflow-hidden border-none">
+            <AccordionItem value="item-1" className="orange-accent-card rounded-xl overflow-hidden border-none">
               <AccordionTrigger className="px-4 sm:px-6 py-4 text-base sm:text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline active:bg-black/5">
-                What types of yoga classes do you offer?
+                🧘‍♀️ What types of yoga classes do you offer?
               </AccordionTrigger>
               <AccordionContent className="px-4 sm:px-6 text-sm sm:text-base text-gray-600">
                 We offer a variety of classes including Weight Loss Batch, Regular Batch, Ladies Batch,
-                and Yoga Therapy sessions. Each class is designed to cater to different needs and experience levels.
+                Yoga Therapy sessions, Pregnancy Yoga, and specialized programs for stress and anger management.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="glass-panel-warm rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                Do I need prior yoga experience to join?
+            <AccordionItem value="item-2" className="orange-accent-card rounded-xl overflow-hidden border-none">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
+                🌱 Do I need prior yoga experience to join?
               </AccordionTrigger>
               <AccordionContent className="px-6 text-gray-600">
                 No prior experience is needed. Our classes accommodate all levels, from beginners to advanced practitioners.
@@ -256,9 +411,9 @@ const Home = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="glass-panel-warm rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                What should I bring to class?
+            <AccordionItem value="item-3" className="orange-accent-card rounded-xl overflow-hidden border-none">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
+                🎒 What should I bring to class?
               </AccordionTrigger>
               <AccordionContent className="px-6 text-gray-600">
                 We recommend bringing a yoga mat, comfortable clothing, and a water bottle. If you don't have a mat,
@@ -266,9 +421,9 @@ const Home = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="glass-panel-warm rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                How often should I practice yoga?
+            <AccordionItem value="item-4" className="orange-accent-card rounded-xl overflow-hidden border-none">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
+                📅 How often should I practice yoga?
               </AccordionTrigger>
               <AccordionContent className="px-6 text-gray-600">
                 For beginners, we recommend 2-3 classes per week. As you build strength and flexibility,
@@ -276,13 +431,23 @@ const Home = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="glass-panel-warm rounded-xl overflow-hidden border-none">
-              <AccordionTrigger className="px-6 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
-                Do you offer online classes?
+            <AccordionItem value="item-5" className="orange-accent-card rounded-xl overflow-hidden border-none">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
+                💻 Do you offer online classes?
               </AccordionTrigger>
               <AccordionContent className="px-6 text-gray-600">
                 Yes, we offer online classes via Zoom for several of our regular batches.
                 These classes provide the same quality instruction as our in-studio sessions.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="orange-accent-card rounded-xl overflow-hidden border-none">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-gray-900 hover:text-orange-600 hover:no-underline">
+                🤰 Is yoga safe during pregnancy?
+              </AccordionTrigger>
+              <AccordionContent className="px-6 text-gray-600">
+                Yes! We offer specialized prenatal yoga classes designed specifically for expecting mothers.
+                These classes focus on safe poses and breathing techniques that support both mother and baby.
               </AccordionContent>
             </AccordionItem>
             </Accordion>

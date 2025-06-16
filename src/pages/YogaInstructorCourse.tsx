@@ -6,11 +6,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CheckCircle, Download, Users, Globe, BookOpen, Heart } from 'lucide-react';
 
 const YogaInstructorCourse = () => {
-  const curriculumModules = [
-    { icon: '🧘', title: 'Asana', description: 'Postures, alignment & variations' },
-    { icon: '🌬️', title: 'Pranayama', description: 'Breathwork & control' },
-    { icon: '💧', title: 'Kriya', description: 'Cleansing & detox techniques' },
-    { icon: '🧘‍♂️', title: 'Meditation', description: 'Concentration to deep silence' }
+  const uniqueFeatures = [
+    { icon: <Globe className="w-6 h-6" />, text: 'International Certification (recognized globally)' },
+    { icon: <BookOpen className="w-6 h-6" />, text: 'VYASA University Affiliation' },
+    { icon: <Users className="w-6 h-6" />, text: 'Flexible Learning (Theory online, Practical both online & offline)' },
+    { icon: <Heart className="w-6 h-6" />, text: 'Career-Ready Curriculum' }
   ];
 
   const additionalTopics = [
@@ -20,13 +20,6 @@ const YogaInstructorCourse = () => {
     'Anatomy & Physiology for Yoga',
     'Stress Management Tools',
     'Personality Development & Communication Skills'
-  ];
-
-  const uniqueFeatures = [
-    { icon: <Globe className="w-6 h-6" />, text: 'International Certification (recognized globally)' },
-    { icon: <BookOpen className="w-6 h-6" />, text: 'VYASA University Affiliation' },
-    { icon: <Users className="w-6 h-6" />, text: 'Flexible Learning (Theory online, Practical both online & offline)' },
-    { icon: <Heart className="w-6 h-6" />, text: 'Career-Ready Curriculum' }
   ];
 
   const testimonials = [
@@ -83,7 +76,7 @@ const YogaInstructorCourse = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              Yoga Instructor Course
+              🧘‍♂️ Yoga Instructor Course
               <span className="block text-3xl sm:text-4xl lg:text-5xl text-orange-300 mt-2">(YIC)</span>
             </h1>
             <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light">
@@ -168,22 +161,180 @@ const YogaInstructorCourse = () => {
         </div>
       </section>
 
-      {/* Curriculum */}
+      {/* Course Curriculum Overview Redesigned */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">
             🧠 Course Curriculum Overview
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {curriculumModules.map((module, index) => (
-              <Card key={index} className="orange-accent-card text-center">
-                <CardContent className="p-8">
-                  <div className="text-6xl mb-4">{module.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{module.title}</h3>
-                  <p className="text-gray-600">{module.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+
+          {/* Theoretical Curriculum Section */}
+          <div className="mb-20">
+            <h3 className="section-title text-3xl sm:text-4xl text-center text-gray-900 mb-12">
+              🧠 Theoretical Curriculum
+            </h3>
+            
+            <div className="space-y-16">
+              {/* Introduction to Yoga & Its Streams */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">🌿</span>
+                        </div>
+                        <p className="font-medium">Yoga Philosophy</p>
+                        <p className="text-sm">Traditional wisdom</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">🌿 Introduction to Yoga & Its Streams</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Explore the meaning, purpose, and philosophical roots of yoga, including Jnana, Raja, 
+                    Bhakti, and Karma Yoga streams. Understand the deeper significance of yoga beyond 
+                    physical practice.
+                  </p>
+                </div>
+              </div>
+
+              {/* Indian Culture & Yogic Lifestyle */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative order-2 lg:order-1">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">🇮🇳</span>
+                        </div>
+                        <p className="font-medium">Cultural Heritage</p>
+                        <p className="text-sm">Yogic traditions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 order-1 lg:order-2">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">🇮🇳 Indian Culture & Yogic Lifestyle</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Understanding the holistic way of life rooted in Indian traditions, values, and spiritual teachings. 
+                    Learn how ancient wisdom applies to modern living for complete well-being.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Practical Curriculum Section */}
+          <div className="mb-16">
+            <h3 className="section-title text-3xl sm:text-4xl text-center text-gray-900 mb-12">
+              🧘 Practical Curriculum
+            </h3>
+            
+            <div className="space-y-16">
+              {/* Asana (Postures) */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">🧘</span>
+                        </div>
+                        <p className="font-medium">Asana Practice</p>
+                        <p className="text-sm">Yoga postures</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">🧘 Asana (Postures)</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Learn foundational standing, sitting, supine, and prone poses with proper alignment, 
+                    variations, and therapeutic aspects. Master the art of safe and effective posture practice.
+                  </p>
+                </div>
+              </div>
+
+              {/* Pranayama (Breathwork) */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative order-2 lg:order-1">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">🌬️</span>
+                        </div>
+                        <p className="font-medium">Breath Control</p>
+                        <p className="text-sm">Pranayama techniques</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 order-1 lg:order-2">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">🌬️ Pranayama (Breathwork)</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Master yogic breathing techniques for vitality, focus, and inner calmness. 
+                    Learn various pranayama practices that enhance physical and mental well-being.
+                  </p>
+                </div>
+              </div>
+
+              {/* Kriya (Cleansing Techniques) */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">💧</span>
+                        </div>
+                        <p className="font-medium">Cleansing Practices</p>
+                        <p className="text-sm">Purification techniques</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">💧 Kriya (Cleansing Techniques)</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Detoxify the body-mind system using traditional kriyas such as Jalaneti, Kapalabhati, 
+                    and more. Learn ancient purification methods for optimal health and clarity.
+                  </p>
+                </div>
+              </div>
+
+              {/* Meditation & Cyclic Meditation */}
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div className="relative order-2 lg:order-1">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-500">
+                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <span className="text-2xl">🧘‍♂️</span>
+                        </div>
+                        <p className="font-medium">Meditation Practice</p>
+                        <p className="text-sm">Inner stillness</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 order-1 lg:order-2">
+                  <h4 className="section-title text-xl sm:text-2xl text-gray-900">🧘‍♂️ Meditation & Cyclic Meditation</h4>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Build concentration and deep inner stillness using guided and self-led meditation practices. 
+                    Experience the transformative power of meditative awareness.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <Card className="orange-accent-card">

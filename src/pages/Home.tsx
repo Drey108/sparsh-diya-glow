@@ -1,4 +1,5 @@
-import { Heart, Users, Clock, Target, Award } from 'lucide-react';
+
+import { Heart, Users, Clock, Target, Award, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -129,76 +130,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-12 sm:py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
-              🧘‍♂️ Our Services
-            </h2>
-            <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
-              Discover our range of specialized yoga programs designed to meet your unique wellness needs.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            {[
-              {
-                emoji: '🧘‍♀️',
-                title: 'Yoga for Pregnancy',
-                description: 'Safe and gentle yoga practices designed specifically for expecting mothers'
-              },
-              {
-                emoji: '🔥',
-                title: 'Yoga for Weight Loss',
-                description: 'Dynamic sequences and poses to boost metabolism and support healthy weight management'
-              },
-              {
-                emoji: '🛡️',
-                title: 'Personalized Guidance for Physical Problems',
-                description: 'Specialized support for back pain, stiffness, joint issues, and other physical concerns'
-              },
-              {
-                emoji: '😌',
-                title: 'Yoga for Stress Management',
-                description: 'Calming practices to reduce stress, anxiety, and promote mental well-being'
-              },
-              {
-                emoji: '😠',
-                title: 'Yoga for Anger Management',
-                description: 'Mindful techniques to help manage emotions and cultivate inner peace'
-              },
-              {
-                emoji: '✨',
-                title: 'More Services Coming Soon...',
-                description: 'We are continuously expanding our offerings to serve your wellness journey better'
-              }
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="orange-accent-card p-6 sm:p-8 text-center"
-              >
-                <div className="text-4xl mb-4">{service.emoji}</div>
-                <h3 className="section-title text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button asChild className="minimal-button text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600">
-              <Link to="/contact">👉 Book a Free Trial Class</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* About Us Section with Our Instructors */}
-      <section className="py-12 sm:py-20 px-4 bg-white">
+      <section className="py-12 sm:py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
@@ -280,7 +213,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Meet Our Instructors Section */}
+          {/* Meet Our Instructors Section - Diagonal Layout */}
           <div className="space-y-12 sm:space-y-20">
             <div className="text-center">
               <h3 className="section-title text-2xl md:text-3xl text-gray-900 mb-8">🧑‍🏫 Meet Our Instructors</h3>
@@ -370,7 +303,83 @@ const Home = () => {
         </div>
       </section>
 
-            {/* FAQ Section Updated to Match YogaInstructorCourse.tsx Style */}
+      {/* Testimonials Section */}
+      <section className="py-12 sm:py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
+              💬 What Our Students Say
+            </h2>
+            <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+              Hear from our wonderful community of yoga practitioners about their transformative journeys.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+            {/* Testimonial 1 */}
+            <Card className="orange-accent-card">
+              <CardContent className="p-8">
+                <div className="flex justify-end mb-6">
+                  <Quote className="w-8 h-8 text-orange-400" />
+                </div>
+                
+                <p className="text-gray-600 leading-relaxed mb-6 italic text-lg">
+                  "Sparsh Yoga has been a life-changing experience for me. The instructors are incredibly knowledgeable and create such a warm, welcoming environment. I feel stronger and more balanced than ever before."
+                </p>
+                
+                <div className="border-t border-gray-200 pt-4">
+                  <h4 className="font-semibold text-gray-900 text-lg">
+                    Priya Sharma
+                  </h4>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-orange-600 font-medium">
+                      Ladies Batch
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      6 months
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Testimonial 2 */}
+            <Card className="orange-accent-card">
+              <CardContent className="p-8">
+                <div className="flex justify-end mb-6">
+                  <Quote className="w-8 h-8 text-orange-400" />
+                </div>
+                
+                <p className="text-gray-600 leading-relaxed mb-6 italic text-lg">
+                  "I started the 6:30 AM weight loss batch 8 months ago and have lost 15 kgs! The combination of yoga poses and breathing techniques has transformed my body and mind. Highly recommended!"
+                </p>
+                
+                <div className="border-t border-gray-200 pt-4">
+                  <h4 className="font-semibold text-gray-900 text-lg">
+                    Rajesh Kumar
+                  </h4>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-orange-600 font-medium">
+                      Weight Loss Batch
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      8 months
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild className="minimal-button text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600">
+              <Link to="/contact">Join Our Community</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section Updated to Match YogaInstructorCourse.tsx Style */}
       <section id="faq" className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-4xl sm:text-5xl text-center text-gray-900 mb-16">

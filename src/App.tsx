@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Classes from "./pages/Classes";
-import Testimonials from "./pages/Testimonials";
+import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import YogaInstructorCourse from "./pages/YogaInstructorCourse";
@@ -28,7 +28,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/classes" element={<Classes />} />
-              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/YIC" element={<YogaInstructorCourse />} />

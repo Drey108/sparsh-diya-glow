@@ -15,15 +15,15 @@ import FileUploader from './FileUploader';
 interface GalleryItem {
   id: string;
   title: string;
-  description: string;
-  type: 'image' | 'video';
+  description: string | null;
+  type: string;
   file_url: string;
-  thumbnail_url: string;
-  category_id: string;
-  status: 'active' | 'inactive' | 'draft';
-  is_featured: boolean;
+  thumbnail_url: string | null;
+  category_id: string | null;
+  status: string;
+  is_featured: boolean | null;
   created_at: string;
-  gallery_categories?: { name: string };
+  gallery_categories?: { name: string } | null;
 }
 
 const GalleryManager = () => {
@@ -256,7 +256,7 @@ const GalleryManager = () => {
         </Card>
       ) : viewMode === 'grid' ? (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item: GalleryItem) => (
+          {items.map((item) => (
             <Card key={item.id} className="group hover:shadow-lg transition-shadow">
               <CardContent className="p-4">
                 <div className="relative">
@@ -275,7 +275,7 @@ const GalleryManager = () => {
                       />
                     ) : (
                       <div className="text-gray-400">
-                        {item.type === 'image' ? <Grid3x3 className="h-8 w-8" /> : <Grid2x2Check className="h-8 w-8" />}
+                        {item.type === 'image' ? <Grid3x3 className="h-8 w-8" /> : <Grid2x2 className="h-8 w-8" />}
                       </div>
                     )}
                   </div>
@@ -338,7 +338,7 @@ const GalleryManager = () => {
             </div>
           </div>
           
-          {items.map((item: GalleryItem) => (
+          {items.map((item) => (
             <Card key={item.id}>
               <CardContent className="p-3">
                 <div className="flex items-center">

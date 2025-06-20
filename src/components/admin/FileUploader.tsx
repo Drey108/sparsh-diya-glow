@@ -60,22 +60,20 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
 
       // Update file status
       setFiles(prev => prev.map(f => 
-        f.id === file.id ? { ...f, status: 'uploading', progress: 0 } : f
+        f.id === file.id ? { ...f, status: 'uploading', progress: 50 } : f
       ));
 
       // Upload to Supabase Storage
       const { error: uploadError } = await supabase.storage
         .from('gallery-images')
-        .upload(filePath, file, {
-          onUploadProgress: (progress) => {
-            const percentage = (progress.loaded / progress.total) * 100;
-            setFiles(prev => prev.map(f => 
-              f.id === file.id ? { ...f, progress: percentage } : f
-            ));
-          }
-        });
+        .upload(filePath, file);
 
       if (uploadError) throw uploadError;
+
+      // Update progress
+      setFiles(prev => prev.map(f => 
+        f.id === file.id ? { ...f, progress: 75 } : f
+      ));
 
       // Get public URL
       const { data: { publicUrl } } = supabase.storage

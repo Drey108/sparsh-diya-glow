@@ -12,6 +12,8 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import YogaInstructorCourse from "./pages/YogaInstructorCourse";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,19 +25,30 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <div className="min-h-screen w-full flex flex-col">
-          <Navigation />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/classes" element={<Classes />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/YIC" element={<YogaInstructorCourse />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
+          <Routes>
+            {/* Admin routes - no navigation/footer */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/*" element={<Admin />} />
+            
+            {/* Public routes - with navigation/footer */}
+            <Route path="/*" element={
+              <>
+                <Navigation />
+                <main className="flex-grow">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/YIC" element={<YogaInstructorCourse />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </>
+            } />
+          </Routes>
         </div>
       </BrowserRouter>
     </TooltipProvider>

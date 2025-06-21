@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { put } from '@vercel/blob';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -65,34 +65,6 @@ const GalleryItemEditor = ({ item, onClose, onSave }: GalleryItemEditorProps) =>
     }
   }, [item]);
 
-  const uploadToVercelBlob = async (file: File) => {
-    const fileName = `videos/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${file.name.split('.').pop()}`;
-    
-    const blob = await put(fileName, file, {
-      access: 'public',
-    });
-
-    return blob.url;
-  };
-
-  const uploadToSupabaseStorage = async (file: File) => {
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Date.now()}.${fileExt}`;
-    const filePath = `images/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from('gallery-images')
-      .upload(filePath, file);
-
-    if (uploadError) throw uploadError;
-
-    const { data: { publicUrl } } = supabase.storage
-      .from('gallery-images')
-      .getPublicUrl(filePath);
-
-    return publicUrl;
-  };
-
   const saveMutation = useMutation({
     mutationFn: async () => {
       let file_url = item?.file_url || '';
@@ -100,15 +72,22 @@ const GalleryItemEditor = ({ item, onClose, onSave }: GalleryItemEditorProps) =>
 
       // Handle file upload if there's a new file
       if (file) {
-        const isVideo = formData.type === 'video';
-        
-        if (isVideo) {
-          file_url = await uploadToVercelBlob(file);
-        } else {
-          file_url = await uploadToSupabaseStorage(file);
-        }
-        
-        thumbnail_url = file_url; // For now, use same URL for thumbnail
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}.${fileExt}`;
+        const filePath = `${formData.type}s/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('gallery-images')
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('gallery-images')
+          .getPublicUrl(filePath);
+
+        file_url = publicUrl;
+        thumbnail_url = publicUrl; // For now, use same URL for thumbnail
       }
 
       const itemData = {
@@ -194,18 +173,6 @@ const GalleryItemEditor = ({ item, onClose, onSave }: GalleryItemEditorProps) =>
           <X className="h-4 w-4" />
         </Button>
       </div>
-
-      {/* Upload Strategy Info */}
-      <Card className="bg-blue-50 border-blue-200">
-        <CardContent className="p-3">
-          <div className="text-sm text-blue-800">
-            <span className="font-medium">Upload Strategy:</span>
-            <span className="ml-2">
-              {formData.type === 'video' ? 'Videos → Vercel Blob Storage' : 'Images → Supabase Storage'}
-            </span>
-          </div>
-        </CardContent>
-      </Card>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid gap-6 md:grid-cols-2">

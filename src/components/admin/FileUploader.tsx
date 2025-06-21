@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useMutation } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { put } from '@vercel/blob';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -53,84 +52,58 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
     setFiles(prev => prev.filter(f => f.id !== fileId));
   };
 
-  const uploadToVercelBlob = async (file: File) => {
-    const fileName = `videos/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${file.name.split('.').pop()}`;
-    
-    const blob = await put(fileName, file, {
-      access: 'public',
-    });
-
-    return blob.url;
-  };
-
-  const uploadToSupabaseStorage = async (file: File) => {
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
-    const filePath = `images/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from('gallery-images')
-      .upload(filePath, file);
-
-    if (uploadError) throw uploadError;
-
-    const { data: { publicUrl } } = supabase.storage
-      .from('gallery-images')
-      .getPublicUrl(filePath);
-
-    return publicUrl;
-  };
-
   const uploadMutation = useMutation({
     mutationFn: async (file: FileWithPreview) => {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+      const filePath = `${file.type.startsWith('image') ? 'images' : 'videos'}/${fileName}`;
+
       // Update file status
       setFiles(prev => prev.map(f => 
-        f.id === file.id ? { ...f, status: 'uploading', progress: 25 } : f
+        f.id === file.id ? { ...f, status: 'uploading', progress: 50 } : f
       ));
 
-      let fileUrl: string;
-      const isVideo = file.type.startsWith('video');
+      // Upload to Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('gallery-images')
+        .upload(filePath, file);
 
-      try {
-        // Upload based on file type
-        if (isVideo) {
-          fileUrl = await uploadToVercelBlob(file);
-        } else {
-          fileUrl = await uploadToSupabaseStorage(file);
-        }
+      if (uploadError) throw uploadError;
 
-        // Update progress
-        setFiles(prev => prev.map(f => 
-          f.id === file.id ? { ...f, progress: 75 } : f
-        ));
+      // Update progress
+      setFiles(prev => prev.map(f => 
+        f.id === file.id ? { ...f, progress: 75 } : f
+      ));
 
-        // Create gallery item record
-        const { error: insertError } = await supabase
-          .from('gallery_items')
-          .insert([{
-            title: file.name.split('.')[0],
-            type: isVideo ? 'video' : 'image',
-            file_url: fileUrl,
-            thumbnail_url: fileUrl,
-            status: 'draft',
-            created_by: (await supabase.auth.getUser()).data.user?.id
-          }]);
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('gallery-images')
+        .getPublicUrl(filePath);
 
-        if (insertError) throw insertError;
+      // Create gallery item record
+      const { error: insertError } = await supabase
+        .from('gallery_items')
+        .insert([{
+          title: file.name.split('.')[0],
+          type: file.type.startsWith('image') ? 'image' : 'video',
+          file_url: publicUrl,
+          thumbnail_url: publicUrl,
+          status: 'draft',
+          created_by: (await supabase.auth.getUser()).data.user?.id
+        }]);
 
-        // Update file status to completed
-        setFiles(prev => prev.map(f => 
-          f.id === file.id ? { ...f, status: 'completed', progress: 100 } : f
-        ));
-      } catch (error) {
-        throw error;
-      }
+      if (insertError) throw insertError;
+
+      // Update file status to completed
+      setFiles(prev => prev.map(f => 
+        f.id === file.id ? { ...f, status: 'completed', progress: 100 } : f
+      ));
     },
     onError: (error: any, file: FileWithPreview) => {
       setFiles(prev => prev.map(f => 
         f.id === file.id ? { ...f, status: 'error', error: error.message } : f
       ));
-      toast.error(`Failed to upload ${file.name}: ${error.message}`);
+      toast.error(`Failed to upload ${file.name}`);
     }
   });
 
@@ -161,17 +134,6 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
           <X className="h-4 w-4" />
         </Button>
       </div>
-
-      {/* Upload Strategy Info */}
-      <Card className="bg-blue-50 border-blue-200">
-        <CardContent className="p-4">
-          <div className="text-sm text-blue-800">
-            <p className="font-medium mb-1">Upload Strategy:</p>
-            <p>• Images → Supabase Storage</p>
-            <p>• Videos → Vercel Blob Storage (for better performance)</p>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Dropzone */}
       <Card>
@@ -241,13 +203,9 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
                   
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{file.name}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <span>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
-                      <span>→</span>
-                      <span className="text-blue-600">
-                        {file.type.startsWith('video') ? 'Vercel Blob' : 'Supabase Storage'}
-                      </span>
-                    </div>
+                    <p className="text-sm text-gray-500">
+                      {(file.size / 1024 / 1024).toFixed(2)} MB
+                    </p>
                     
                     {file.status === 'uploading' && (
                       <Progress value={file.progress} className="mt-2 h-2" />

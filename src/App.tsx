@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,41 +19,43 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen w-full flex flex-col">
-          <Routes>
-            {/* Admin routes - no navigation/footer */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/*" element={<Admin />} />
-            
-            {/* Public routes - with navigation/footer */}
-            <Route path="/*" element={
-              <>
-                <Navigation />
-                <main className="flex-grow">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/classes" element={<Classes />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/YIC" element={<YogaInstructorCourse />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </main>
-                <Footer />
-              </>
-            } />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App: React.FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen w-full flex flex-col">
+            <Routes>
+              {/* Admin routes - no navigation/footer */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin/*" element={<Admin />} />
+              
+              {/* Public routes - with navigation/footer */}
+              <Route path="/*" element={
+                <>
+                  <Navigation />
+                  <main className="flex-grow">
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/classes" element={<Classes />} />
+                      <Route path="/services" element={<Services />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/gallery" element={<Gallery />} />
+                      <Route path="/YIC" element={<YogaInstructorCourse />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                </>
+              } />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

@@ -56,8 +56,7 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
   const uploadToVercelBlob = async (file: File) => {
     try {
       const blob = await put(file.name, file, {
-        access: 'public',
-        handleUploadUrl: '/api/upload'
+        access: 'public'
       });
       return blob.url;
     } catch (error) {

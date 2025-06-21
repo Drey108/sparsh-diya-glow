@@ -9,6 +9,7 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { X, Upload, FileUp, Check } from 'lucide-react';
 import { toast } from 'sonner';
+import { put } from '@vercel/blob';
 
 interface FileWithPreview extends File {
   preview?: string;
@@ -52,58 +53,102 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
     setFiles(prev => prev.filter(f => f.id !== fileId));
   };
 
+  const uploadToVercelBlob = async (file: File) => {
+    try {
+      const blob = await put(file.name, file, {
+        access: 'public',
+        handleUploadUrl: '/api/upload'
+      });
+      return blob.url;
+    } catch (error) {
+      console.error('Vercel Blob upload error:', error);
+      throw new Error('Failed to upload to Vercel Blob');
+    }
+  };
+
+  const uploadToSupabaseStorage = async (file: File) => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+    const filePath = `images/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from('gallery-images')
+      .upload(filePath, file);
+
+    if (uploadError) throw uploadError;
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('gallery-images')
+      .getPublicUrl(filePath);
+
+    return publicUrl;
+  };
+
   const uploadMutation = useMutation({
     mutationFn: async (file: FileWithPreview) => {
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
-      const filePath = `${file.type.startsWith('image') ? 'images' : 'videos'}/${fileName}`;
-
       // Update file status
       setFiles(prev => prev.map(f => 
-        f.id === file.id ? { ...f, status: 'uploading', progress: 50 } : f
+        f.id === file.id ? { ...f, status: 'uploading', progress: 25 } : f
       ));
 
-      // Upload to Supabase Storage
-      const { error: uploadError } = await supabase.storage
-        .from('gallery-images')
-        .upload(filePath, file);
+      let file_url = '';
+      let thumbnail_url = '';
 
-      if (uploadError) throw uploadError;
+      try {
+        if (file.type.startsWith('video')) {
+          // Upload videos to Vercel Blob Storage
+          setFiles(prev => prev.map(f => 
+            f.id === file.id ? { ...f, progress: 50 } : f
+          ));
+          
+          file_url = await uploadToVercelBlob(file);
+          thumbnail_url = file_url; // For now, use same URL for thumbnail
+          
+          setFiles(prev => prev.map(f => 
+            f.id === file.id ? { ...f, progress: 75 } : f
+          ));
+        } else {
+          // Upload images to Supabase Storage
+          setFiles(prev => prev.map(f => 
+            f.id === file.id ? { ...f, progress: 50 } : f
+          ));
+          
+          file_url = await uploadToSupabaseStorage(file);
+          thumbnail_url = file_url;
+          
+          setFiles(prev => prev.map(f => 
+            f.id === file.id ? { ...f, progress: 75 } : f
+          ));
+        }
 
-      // Update progress
-      setFiles(prev => prev.map(f => 
-        f.id === file.id ? { ...f, progress: 75 } : f
-      ));
+        // Create gallery item record in Supabase
+        const { error: insertError } = await supabase
+          .from('gallery_items')
+          .insert([{
+            title: file.name.split('.')[0],
+            type: file.type.startsWith('image') ? 'image' : 'video',
+            file_url: file_url,
+            thumbnail_url: thumbnail_url,
+            status: 'draft',
+            created_by: (await supabase.auth.getUser()).data.user?.id
+          }]);
 
-      // Get public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from('gallery-images')
-        .getPublicUrl(filePath);
+        if (insertError) throw insertError;
 
-      // Create gallery item record
-      const { error: insertError } = await supabase
-        .from('gallery_items')
-        .insert([{
-          title: file.name.split('.')[0],
-          type: file.type.startsWith('image') ? 'image' : 'video',
-          file_url: publicUrl,
-          thumbnail_url: publicUrl,
-          status: 'draft',
-          created_by: (await supabase.auth.getUser()).data.user?.id
-        }]);
-
-      if (insertError) throw insertError;
-
-      // Update file status to completed
-      setFiles(prev => prev.map(f => 
-        f.id === file.id ? { ...f, status: 'completed', progress: 100 } : f
-      ));
+        // Update file status to completed
+        setFiles(prev => prev.map(f => 
+          f.id === file.id ? { ...f, status: 'completed', progress: 100 } : f
+        ));
+      } catch (error) {
+        console.error('Upload error:', error);
+        throw error;
+      }
     },
     onError: (error: any, file: FileWithPreview) => {
       setFiles(prev => prev.map(f => 
         f.id === file.id ? { ...f, status: 'error', error: error.message } : f
       ));
-      toast.error(`Failed to upload ${file.name}`);
+      toast.error(`Failed to upload ${file.name}: ${error.message}`);
     }
   });
 
@@ -134,6 +179,15 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
           <X className="h-4 w-4" />
         </Button>
       </div>
+
+      {/* Upload Strategy Info */}
+      <Card className="bg-blue-50 border-blue-200">
+        <CardContent className="p-4">
+          <p className="text-sm text-blue-800">
+            <strong>Upload Strategy:</strong> Videos are uploaded to Vercel Blob Storage, images to Supabase Storage. All URLs are stored in Supabase database.
+          </p>
+        </CardContent>
+      </Card>
 
       {/* Dropzone */}
       <Card>
@@ -203,9 +257,13 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
                   
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{file.name}</p>
-                    <p className="text-sm text-gray-500">
-                      {(file.size / 1024 / 1024).toFixed(2)} MB
-                    </p>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <span>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                      <span>•</span>
+                      <span className="text-xs bg-gray-100 px-2 py-1 rounded">
+                        {file.type.startsWith('video') ? 'Vercel Blob' : 'Supabase Storage'}
+                      </span>
+                    </div>
                     
                     {file.status === 'uploading' && (
                       <Progress value={file.progress} className="mt-2 h-2" />

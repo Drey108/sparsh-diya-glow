@@ -72,7 +72,7 @@ const GalleryItemEditor = ({ item, onClose, onSave }: GalleryItemEditorProps) =>
 
       // Handle file upload if there's a new file
       if (file) {
-        const fileExt = file.name.split('.').pop();
+        const fileExt = file.name ? file.name.split('.').pop() : 'unknown';
         const fileName = `${Date.now()}.${fileExt}`;
         const filePath = `${formData.type}s/${fileName}`;
 

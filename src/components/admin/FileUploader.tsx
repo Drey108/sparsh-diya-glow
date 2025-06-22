@@ -67,7 +67,7 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
   };
 
   const uploadToSupabaseStorage = async (file: File) => {
-    const fileExt = file.name.split('.').pop();
+    const fileExt = file.name ? file.name.split('.').pop() : 'unknown';
     const fileName = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
     const filePath = `images/${fileName}`;
 
@@ -128,7 +128,8 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
         const { error: insertError } = await supabase
           .from('gallery_items')
           .insert([{
-            title: file.name.split('.')[0],
+            title: file.name ? file.name.split('.')[0] : 'untitled',
+
             type: fileType.startsWith('image/') ? 'image' : 'video',
             file_url: file_url,
             thumbnail_url: thumbnail_url,

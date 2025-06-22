@@ -94,7 +94,10 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
       let thumbnail_url = '';
 
       try {
-        if (file.type.startsWith('video')) {
+        // Check if file.type exists and is a string before calling startsWith
+        const fileType = file.type || '';
+        
+        if (fileType.startsWith('video/')) {
           // Upload videos to Vercel Blob Storage
           setFiles(prev => prev.map(f => 
             f.id === file.id ? { ...f, progress: 50 } : f
@@ -125,7 +128,7 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
           .from('gallery_items')
           .insert([{
             title: file.name.split('.')[0],
-            type: file.type.startsWith('image') ? 'image' : 'video',
+            type: fileType.startsWith('image/') ? 'image' : 'video',
             file_url: file_url,
             thumbnail_url: thumbnail_url,
             status: 'draft',
@@ -240,62 +243,65 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {files.map((file) => (
-                <div key={file.id} className="flex items-center gap-4 p-3 border rounded-lg">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    {file.preview && file.type.startsWith('image') ? (
-                      <img
-                        src={file.preview}
-                        alt={file.name}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    ) : (
-                      <FileUp className="h-5 w-5 text-gray-400" />
-                    )}
-                  </div>
-                  
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium truncate">{file.name}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <span>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
-                      <span>•</span>
-                      <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-                        {file.type.startsWith('video') ? 'Vercel Blob' : 'Supabase Storage'}
-                      </span>
+              {files.map((file) => {
+                const fileType = file.type || '';
+                return (
+                  <div key={file.id} className="flex items-center gap-4 p-3 border rounded-lg">
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      {file.preview && fileType.startsWith('image/') ? (
+                        <img
+                          src={file.preview}
+                          alt={file.name}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      ) : (
+                        <FileUp className="h-5 w-5 text-gray-400" />
+                      )}
                     </div>
                     
-                    {file.status === 'uploading' && (
-                      <Progress value={file.progress} className="mt-2 h-2" />
-                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium truncate">{file.name}</p>
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <span>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                        <span>•</span>
+                        <span className="text-xs bg-gray-100 px-2 py-1 rounded">
+                          {fileType.startsWith('video/') ? 'Vercel Blob' : 'Supabase Storage'}
+                        </span>
+                      </div>
+                      
+                      {file.status === 'uploading' && (
+                        <Progress value={file.progress} className="mt-2 h-2" />
+                      )}
+                      
+                      {file.status === 'error' && (
+                        <p className="text-sm text-red-500 mt-1">{file.error}</p>
+                      )}
+                    </div>
                     
-                    {file.status === 'error' && (
-                      <p className="text-sm text-red-500 mt-1">{file.error}</p>
-                    )}
+                    <div className="flex items-center gap-2">
+                      <Badge
+                        variant={
+                          file.status === 'completed' ? 'default' :
+                          file.status === 'error' ? 'destructive' :
+                          file.status === 'uploading' ? 'secondary' : 'outline'
+                        }
+                      >
+                        {file.status === 'completed' && <Check className="mr-1 h-3 w-3" />}
+                        {file.status}
+                      </Badge>
+                      
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => removeFile(file.id)}
+                        disabled={file.status === 'uploading'}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
-                  
-                  <div className="flex items-center gap-2">
-                    <Badge
-                      variant={
-                        file.status === 'completed' ? 'default' :
-                        file.status === 'error' ? 'destructive' :
-                        file.status === 'uploading' ? 'secondary' : 'outline'
-                      }
-                    >
-                      {file.status === 'completed' && <Check className="mr-1 h-3 w-3" />}
-                      {file.status}
-                    </Badge>
-                    
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeFile(file.id)}
-                      disabled={file.status === 'uploading'}
-                    >
-                      <X className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </CardContent>
         </Card>

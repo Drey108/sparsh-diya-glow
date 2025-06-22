@@ -29,16 +29,21 @@ const FileUploader = ({ onClose, onUploadComplete }: FileUploaderProps) => {
   const [isUploading, setIsUploading] = useState(false);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    const newFiles: FileWithPreview[] = acceptedFiles.map(file => ({
-      ...file,
-      id: Math.random().toString(36).substr(2, 9),
-      preview: URL.createObjectURL(file),
-      progress: 0,
-      status: 'pending'
-    }));
-    
-    setFiles(prev => [...prev, ...newFiles]);
-  }, []);
+  console.log("Dropped file(s):", acceptedFiles); // temporary debug log
+
+  const newFiles: FileWithPreview[] = acceptedFiles.map(file =>
+  Object.assign(file, {
+    id: Math.random().toString(36).substr(2, 9),
+    preview: URL.createObjectURL(file),
+    progress: 0,
+    status: 'pending' as 'pending'  // <-- Type assertion here
+  })
+);
+
+
+  setFiles(prev => [...prev, ...newFiles]);
+}, []);
+
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

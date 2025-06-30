@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { MapPin, MessageCircle, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -34,26 +35,32 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Navigation */}
+            {/* Navigation - Updated to match navigation bar */}
             <div className="space-y-8">
               <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Explore
               </h3>
               <nav className="space-y-4">
-                {['Home', 'Classes', 'Testimonials', 'Gallery'].map((item) => (
+                {[
+                  { name: 'Home', path: '/' },
+                  { name: 'Classes', path: '/classes' },
+                  { name: 'Services', path: '/services' },
+                  { name: 'Gallery', path: '/gallery' },
+                  { name: 'Yoga Instructor Course', path: '/YIC' }
+                ].map((item) => (
                   <Link 
-                    key={item}
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    key={item.name}
+                    to={item.path}
                     className="block text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
                     style={{ fontFamily: 'Manrope, sans-serif' }}
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 ))}
               </nav>
             </div>
 
-            {/* Contact & CTA */}
+            {/* Contact & CTA - Updated contact information */}
             <div className="space-y-8">
               <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Connect
@@ -63,27 +70,37 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-4 h-4 text-primary/80 mt-1 flex-shrink-0" />
-                  <span className="text-foreground/70 text-sm" style={{ fontFamily: 'Manrope, sans-serif' }}>
-                    JP Nagar, Bangalore
-                  </span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MessageCircle className="w-4 h-4 text-primary/80 flex-shrink-0" />
                   <a 
-                    href="https://wa.me/919876543210" 
+                    href="https://maps.app.goo.gl/bjrKsDGyMDWYYm919" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
                     style={{ fontFamily: 'Manrope, sans-serif' }}
                   >
-                    WhatsApp
+                    JP Nagar, Bangalore
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <MessageCircle className="w-4 h-4 text-primary/80 flex-shrink-0" />
+                  <a 
+                    href="https://wa.me/919740927213" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'Manrope, sans-serif' }}
+                  >
+                    WhatsApp: +91 97409 27213
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-primary/80 flex-shrink-0" />
-                  <span className="text-foreground/70 text-sm" style={{ fontFamily: 'Manrope, sans-serif' }}>
-                    info@sparshyoga.com
-                  </span>
+                  <a 
+                    href="mailto:sparshmotivationcentre@gmail.com"
+                    className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
+                    style={{ fontFamily: 'Manrope, sans-serif' }}
+                  >
+                    sparshmotivationcentre@gmail.com
+                  </a>
                 </div>
               </div>
 

@@ -1,4 +1,3 @@
-
 import { Heart, Users, Clock, Target, Award, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -56,10 +55,16 @@ const Home = () => {
               </p>
             </div>
             
-            {/* Clean CTAs with Orange Accents */}
+            {/* Clean CTAs with Orange Accents - Updated with new free trial link */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-4">
-              <Button asChild className="minimal-button w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600 active:bg-orange-700 border-2 border-orange-500 hover:border-orange-600">
-                <Link to="/contact">Start Your Journey</Link>
+              <Button 
+                asChild 
+                className="minimal-button w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600 active:bg-orange-700 border-2 border-orange-500 hover:border-orange-600"
+                onClick={() => window.open('https://forms.gle/Vqn3QTrxrpJJVvPd6', '_blank')}
+              >
+                <a href="https://forms.gle/Vqn3QTrxrpJJVvPd6" target="_blank" rel="noopener noreferrer">
+                  Start Your Journey
+                </a>
               </Button>
               <Button
                 variant="outline"
@@ -372,8 +377,11 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild className="minimal-button text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600">
-              <Link to="/contact">Join Our Community</Link>
+            <Button 
+              className="minimal-button text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto bg-orange-500 hover:bg-orange-600"
+              onClick={() => window.open('https://forms.gle/Vqn3QTrxrpJJVvPd6', '_blank')}
+            >
+              Join Our Community
             </Button>
           </div>
         </div>

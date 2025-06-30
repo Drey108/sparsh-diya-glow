@@ -1,7 +1,6 @@
 
 import { Link } from 'react-router-dom';
 import { MapPin, MessageCircle, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
@@ -60,7 +59,7 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* Contact & CTA - Updated contact information */}
+            {/* Contact Info - Removed CTA Button */}
             <div className="space-y-8">
               <h3 className="text-lg font-semibold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
                 Connect
@@ -103,17 +102,6 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-
-              {/* CTA Button */}
-              <Button
-                asChild
-                className="glass-panel-warm border border-white/30 bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary shadow-sm hover:shadow-md transition-all duration-300 px-6 py-2 text-sm"
-                style={{ fontFamily: 'Sora, sans-serif' }}
-              >
-                <Link to="/contact" className="inline-flex items-center justify-center">
-                  Contact Us
-                </Link>
-              </Button>
             </div>
           </div>
 

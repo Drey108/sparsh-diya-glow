@@ -112,7 +112,7 @@ const AboutSection = () => {
           <div className="relative">
             {/* INSERT OUR STORY IMAGE HERE - Route to /lovable-uploads/ourstory.jpg */}
             <img 
-              src="/lovable-uploads/7b4a3e79-b8c4-4d38-85d4-cba6d03539ba.png" 
+              src="/lovable-uploads/4f15f81c-8817-4c69-a1f4-da250edf056d.png   " 
               alt="Our Story - Yoga Community"
               className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
             />
@@ -124,7 +124,7 @@ const AboutSection = () => {
           <div className="relative order-2 lg:order-1">
             {/* INSERT OUR MISSION IMAGE HERE - Route to /lovable-uploads/ourmission.jpg */}
             <img 
-              src="/lovable-uploads/4f15f81c-8817-4c69-a1f4-da250edf056d.png" 
+              src="/lovable-uploads/7b4a3e79-b8c4-4d38-85d4-cba6d03539ba.png" 
               alt="Our Mission - Wellness Journey"
               className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
             />

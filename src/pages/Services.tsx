@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
-    <div className="min-h-screen pt-32 pb-20">
+    <div className="min-h-screen" style={{
+      background: 'linear-gradient(135deg, hsl(35 25% 98%) 0%, hsl(35 25% 94%) 100%)'
+    }}>
       {/* Hero Section */}
-      <section className="px-4 pb-20">
+      <section className="px-4 pb-20 pt-32">
         <div className="max-w-4xl mx-auto text-center">
+          {/* INSERT SERVICES HERO IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
           <h1 className="text-5xl font-bold text-foreground mb-6 animate-fade-in">
             🧘‍♂️ Our Services
           </h1>
@@ -27,6 +30,7 @@ const Services = () => {
             <div className="relative">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
+                  {/* INSERT PREGNANCY YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">🧘‍♀️</div>
                     <p className="font-medium">Prenatal Yoga</p>
@@ -64,6 +68,7 @@ const Services = () => {
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
+                  {/* INSERT WEIGHT LOSS YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">🔥</div>
                     <p className="font-medium">Weight Loss Yoga</p>
@@ -101,6 +106,7 @@ const Services = () => {
             <div className="relative">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
+                  {/* INSERT THERAPEUTIC YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">🛡️</div>
                     <p className="font-medium">Therapeutic Yoga</p>
@@ -138,6 +144,7 @@ const Services = () => {
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
+                  {/* INSERT STRESS MANAGEMENT YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">😌</div>
                     <p className="font-medium">Stress Relief Yoga</p>
@@ -175,6 +182,7 @@ const Services = () => {
             <div className="relative">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
+                  {/* INSERT ANGER MANAGEMENT YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">😠</div>
                     <p className="font-medium">Emotional Balance</p>

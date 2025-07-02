@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -35,10 +36,11 @@ const Navigation = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
-      <nav className="max-w-7xl mx-auto glass-panel-warm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+      <nav className="max-w-7xl mx-auto backdrop-blur-md bg-white/60 border border-white/20 shadow-lg rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
+            {/* INSERT LOGO IMAGE HERE - Route to /lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png */}
             <img 
               src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
               alt="Sparsh Yoga Logo" 

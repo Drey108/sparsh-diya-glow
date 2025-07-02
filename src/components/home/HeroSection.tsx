@@ -5,17 +5,18 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24">
-      {/* Clean Background */}
+      {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
+          /* INSERT HERO BACKGROUND IMAGE HERE - Currently using /lovable-uploads/b951291c-1f2c-4704-9f2b-24adec83bffc.png */
           backgroundImage: "url('/lovable-uploads/b951291c-1f2c-4704-9f2b-24adec83bffc.png')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/30"></div>
       </div>
 
-      {/* Minimal Hero Content - Just Text and CTAs */}
+      {/* Hero Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-4 sm:space-y-6">
@@ -28,7 +29,7 @@ const HeroSection = () => {
             </p>
           </div>
           
-          {/* Clean CTAs with Orange Accents */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-4">
             <Button 
               asChild 

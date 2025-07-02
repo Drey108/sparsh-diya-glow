@@ -28,16 +28,12 @@ const Services = () => {
           {/* Service 1 - Yoga for Pregnancy */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* INSERT PREGNANCY YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
-                  <div className="text-center text-gray-500">
-                    <div className="text-6xl mb-4">🧘‍♀️</div>
-                    <p className="font-medium">Prenatal Yoga</p>
-                    <p className="text-sm">Safe practices for mothers</p>
-                  </div>
-                </div>
-              </div>
+              {/* INSERT PREGNANCY YOGA IMAGE HERE - Route to /lovable-uploads/pregnant.jpg */}
+              <img 
+                src="/lovable-uploads/83374821-3714-49ab-a3b6-ee7ac4f791c2.png" 
+                alt="Yoga for Pregnancy"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+              />
             </div>
             
             <div className="space-y-6">
@@ -66,16 +62,12 @@ const Services = () => {
           {/* Service 2 - Yoga for Weight Loss */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* INSERT WEIGHT LOSS YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
-                  <div className="text-center text-gray-500">
-                    <div className="text-6xl mb-4">🔥</div>
-                    <p className="font-medium">Weight Loss Yoga</p>
-                    <p className="text-sm">Dynamic fitness focused</p>
-                  </div>
-                </div>
-              </div>
+              {/* INSERT WEIGHT LOSS YOGA IMAGE HERE - Route to /lovable-uploads/weightloss.jpg */}
+              <img 
+                src="/lovable-uploads/c4995ac6-9cba-4a79-8d35-ddc6a82889a3.png" 
+                alt="Yoga for Weight Loss"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+              />
             </div>
             
             <div className="space-y-6 order-1 lg:order-2">
@@ -104,16 +96,12 @@ const Services = () => {
           {/* Service 3 - Personalized Guidance for Physical Problems */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* INSERT THERAPEUTIC YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
-                  <div className="text-center text-gray-500">
-                    <div className="text-6xl mb-4">🛡️</div>
-                    <p className="font-medium">Therapeutic Yoga</p>
-                    <p className="text-sm">Healing focused practice</p>
-                  </div>
-                </div>
-              </div>
+              {/* INSERT THERAPEUTIC YOGA IMAGE HERE - Route to /lovable-uploads/physical.jpg */}
+              <img 
+                src="/lovable-uploads/a4dfbf28-6321-4695-b7db-8c7e89cf485e.png" 
+                alt="Personalized Guidance for Physical Problems"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+              />
             </div>
             
             <div className="space-y-6">
@@ -142,16 +130,12 @@ const Services = () => {
           {/* Service 4 - Yoga for Stress Management */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* INSERT STRESS MANAGEMENT YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
-                  <div className="text-center text-gray-500">
-                    <div className="text-6xl mb-4">😌</div>
-                    <p className="font-medium">Stress Relief Yoga</p>
-                    <p className="text-sm">Mental wellness focused</p>
-                  </div>
-                </div>
-              </div>
+              {/* INSERT STRESS MANAGEMENT YOGA IMAGE HERE - Route to /lovable-uploads/stress.jpg */}
+              <img 
+                src="/lovable-uploads/0aa4c30f-51a6-4313-baba-e1a00149f93c.png" 
+                alt="Yoga for Stress Management"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+              />
             </div>
             
             <div className="space-y-6 order-1 lg:order-2">
@@ -180,9 +164,9 @@ const Services = () => {
           {/* Service 5 - Yoga for Anger Management */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
+              {/* INSERT ANGER MANAGEMENT YOGA IMAGE HERE - Route to /lovable-uploads/anger.jpg */}
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* INSERT ANGER MANAGEMENT YOGA IMAGE HERE - Route to appropriate image from /lovable-uploads/ */}
                   <div className="text-center text-gray-500">
                     <div className="text-6xl mb-4">😠</div>
                     <p className="font-medium">Emotional Balance</p>

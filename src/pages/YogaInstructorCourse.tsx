@@ -178,17 +178,11 @@ const YogaInstructorCourse = () => {
               {/* Introduction to Yoga & Its Streams */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🌿</span>
-                        </div>
-                        <p className="font-medium">Yoga Philosophy</p>
-                        <p className="text-sm">Traditional wisdom</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/faf437a9-3634-488b-920c-09e1e7e16b5b.png" 
+                    alt="Philosophy"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4">
@@ -204,17 +198,11 @@ const YogaInstructorCourse = () => {
               {/* Indian Culture & Yogic Lifestyle */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative order-2 lg:order-1">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🇮🇳</span>
-                        </div>
-                        <p className="font-medium">Cultural Heritage</p>
-                        <p className="text-sm">Yogic traditions</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/bcd7fec8-7fcb-4d47-873d-b6eedd795048.png" 
+                    alt="Culture"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4 order-1 lg:order-2">
@@ -238,17 +226,11 @@ const YogaInstructorCourse = () => {
               {/* Asana (Postures) */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🧘</span>
-                        </div>
-                        <p className="font-medium">Asana Practice</p>
-                        <p className="text-sm">Yoga postures</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/96bcaecd-3ecb-44cb-8433-ef37456d4e6f.png" 
+                    alt="Asana"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4">
@@ -263,17 +245,11 @@ const YogaInstructorCourse = () => {
               {/* Pranayama (Breathwork) */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative order-2 lg:order-1">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🌬️</span>
-                        </div>
-                        <p className="font-medium">Breath Control</p>
-                        <p className="text-sm">Pranayama techniques</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/25ff2aae-b5c5-4a7f-ab54-26c901b5ac6f.png" 
+                    alt="Pranayama"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4 order-1 lg:order-2">
@@ -288,17 +264,11 @@ const YogaInstructorCourse = () => {
               {/* Kriya (Cleansing Techniques) */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">💧</span>
-                        </div>
-                        <p className="font-medium">Cleansing Practices</p>
-                        <p className="text-sm">Purification techniques</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/84a12f17-5b85-41fe-9029-fdde7934bee0.png" 
+                    alt="Kriya"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4">
@@ -313,17 +283,11 @@ const YogaInstructorCourse = () => {
               {/* Meditation & Cyclic Meditation */}
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="relative order-2 lg:order-1">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🧘‍♂️</span>
-                        </div>
-                        <p className="font-medium">Meditation Practice</p>
-                        <p className="text-sm">Inner stillness</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/bcd7fec8-7fcb-4d47-873d-b6eedd795048.png" 
+                    alt="Meditation"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+                  />
                 </div>
                 
                 <div className="space-y-4 order-1 lg:order-2">

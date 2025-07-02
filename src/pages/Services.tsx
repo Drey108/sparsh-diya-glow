@@ -28,7 +28,6 @@ const Services = () => {
           {/* Service 1 - Yoga for Pregnancy */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
-              {/* INSERT PREGNANCY YOGA IMAGE HERE - Route to /lovable-uploads/pregnant.jpg */}
               <img 
                 src="/lovable-uploads/83374821-3714-49ab-a3b6-ee7ac4f791c2.png" 
                 alt="Yoga for Pregnancy"
@@ -62,7 +61,6 @@ const Services = () => {
           {/* Service 2 - Yoga for Weight Loss */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative order-2 lg:order-1">
-              {/* INSERT WEIGHT LOSS YOGA IMAGE HERE - Route to /lovable-uploads/weightloss.jpg */}
               <img 
                 src="/lovable-uploads/c4995ac6-9cba-4a79-8d35-ddc6a82889a3.png" 
                 alt="Yoga for Weight Loss"
@@ -96,7 +94,6 @@ const Services = () => {
           {/* Service 3 - Personalized Guidance for Physical Problems */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
-              {/* INSERT THERAPEUTIC YOGA IMAGE HERE - Route to /lovable-uploads/physical.jpg */}
               <img 
                 src="/lovable-uploads/61ca10ed-700f-4cd7-9f79-ad1976faed86.png" 
                 alt="Personalized Guidance for Physical Problems"
@@ -130,7 +127,6 @@ const Services = () => {
           {/* Service 4 - Yoga for Stress Management */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative order-2 lg:order-1">
-              {/* INSERT STRESS MANAGEMENT YOGA IMAGE HERE - Route to /lovable-uploads/stress.jpg */}
               <img 
                 src="/lovable-uploads/0aa4c30f-51a6-4313-baba-e1a00149f93c.png" 
                 alt="Yoga for Stress Management"
@@ -164,16 +160,11 @@ const Services = () => {
           {/* Service 5 - Yoga for Anger Management */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative">
-              {/* INSERT ANGER MANAGEMENT YOGA IMAGE HERE - Route to /lovable-uploads/anger.jpg */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl overflow-hidden border border-orange-200 shadow-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <div className="text-6xl mb-4">😠</div>
-                    <p className="font-medium">Emotional Balance</p>
-                    <p className="text-sm">Inner peace cultivation</p>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/97a5f6b1-637a-4c68-b6dd-c735576b4718.png" 
+                alt="Yoga for Anger Management"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+              />
             </div>
             
             <div className="space-y-6">

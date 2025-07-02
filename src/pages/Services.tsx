@@ -98,7 +98,7 @@ const Services = () => {
             <div className="relative">
               {/* INSERT THERAPEUTIC YOGA IMAGE HERE - Route to /lovable-uploads/physical.jpg */}
               <img 
-                src="/lovable-uploads/a4dfbf28-6321-4695-b7db-8c7e89cf485e.png" 
+                src="/lovable-uploads/61ca10ed-700f-4cd7-9f79-ad1976faed86.png" 
                 alt="Personalized Guidance for Physical Problems"
                 className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
               />

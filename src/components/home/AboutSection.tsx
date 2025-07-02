@@ -93,32 +93,6 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Our Story Section */}
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
-          <div className="space-y-6">
-            <h3 className="section-title text-xl sm:text-2xl md:text-3xl text-gray-900">🌿 Our Story</h3>
-            <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-              Founded with the vision of bringing authentic yoga practices to the modern world, 
-              Sparsh Yoga has been serving the JP Nagar community with dedication and passion. 
-              Our name "Sparsh" means "touch" in Sanskrit, representing our commitment to touching 
-              lives through the transformative power of yoga.
-            </p>
-            <p className="text-gray-600 leading-relaxed text-lg">
-              We combine traditional yoga wisdom with contemporary teaching methods to create 
-              a holistic experience that nurtures both body and mind.
-            </p>
-          </div>
-          
-          <div className="relative">
-            {/* INSERT OUR STORY IMAGE HERE - Route to /lovable-uploads/ourstory.jpg */}
-            <img 
-              src="/lovable-uploads/4f15f81c-8817-4c69-a1f4-da250edf056d.png   " 
-              alt="Our Story - Yoga Community"
-              className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
-            />
-          </div>
-        </div>
-
         {/* Our Mission Section */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="relative order-2 lg:order-1">
@@ -150,6 +124,32 @@ const AboutSection = () => {
                 <span className="text-gray-700 text-lg">Certified instructors with years of experience</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Our Story Section */}
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
+          <div className="space-y-6">
+            <h3 className="section-title text-xl sm:text-2xl md:text-3xl text-gray-900">🌿 Our Story</h3>
+            <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
+              Founded with the vision of bringing authentic yoga practices to the modern world, 
+              Sparsh Yoga has been serving the JP Nagar community with dedication and passion. 
+              Our name "Sparsh" means "touch" in Sanskrit, representing our commitment to touching 
+              lives through the transformative power of yoga.
+            </p>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              We combine traditional yoga wisdom with contemporary teaching methods to create 
+              a holistic experience that nurtures both body and mind.
+            </p>
+          </div>
+          
+          <div className="relative">
+            {/* INSERT OUR STORY IMAGE HERE - Route to /lovable-uploads/ourstory.jpg */}
+            <img 
+              src="/lovable-uploads/4f15f81c-8817-4c69-a1f4-da250edf056d.png   " 
+              alt="Our Story - Yoga Community"
+              className="w-full aspect-[4/3] object-cover rounded-2xl border border-orange-200 shadow-sm"
+            />
           </div>
         </div>
       </div>

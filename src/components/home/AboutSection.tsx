@@ -5,15 +5,6 @@ const AboutSection = () => {
   return (
     <section className="py-12 sm:py-20 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
-            🌿 About Us
-          </h2>
-          <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
-            Located in the heart of JP Nagar, Bangalore, Sparsh Yoga is your sanctuary for 
-            wellness and spiritual growth. We believe in making yoga accessible to everyone.
-          </p>
-        </div>
 
         {/* Meet Our Instructors Section - Diagonal Layout */}
         <div className="space-y-12 sm:space-y-20 mb-12 sm:mb-20">
@@ -91,6 +82,15 @@ const AboutSection = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="text-center mb-16">
+          <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
+            🌿 About Us
+          </h2>
+          <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
+            Located in the heart of JP Nagar, Bangalore, Sparsh Yoga is your sanctuary for 
+            wellness and spiritual growth. We believe in making yoga accessible to everyone.
+          </p>
         </div>
 
         {/* Our Story Section */}

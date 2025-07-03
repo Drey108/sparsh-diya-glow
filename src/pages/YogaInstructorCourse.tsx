@@ -67,7 +67,7 @@ const YogaInstructorCourse = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80')`,
+            backgroundImage: `url('/lovable-uploads/22ee7464-da5e-4405-9c81-f4766e33485d.png')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
@@ -76,7 +76,7 @@ const YogaInstructorCourse = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              🧘‍♂️ Yoga Instructor Course
+              Yoga Instructor Course
               <span className="block text-3xl sm:text-4xl lg:text-5xl text-orange-300 mt-2">(YIC)</span>
             </h1>
             <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light">

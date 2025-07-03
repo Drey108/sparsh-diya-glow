@@ -76,14 +76,16 @@ const YogaInstructorCourse = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
+            <h1 className="hero-title text-5xl sm:text-6xl lg:text-7xl text-white mb-6 drop-shadow-lg">
               Yoga Instructor Course
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-orange-300 mt-2">(YIC)</span>
+              <span className="block text-3xl sm:text-4xl lg:text-5xl text-orange-300 mt-2">
+                (YIC)
+              </span>
             </h1>
-            <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light">
+            <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light drop-shadow-md">
               Transform Your Passion Into Purpose – Enroll in YIC Today
             </p>
-            <p className="text-lg sm:text-xl text-white/80 mb-12 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/80 mb-12 leading-relaxed drop-shadow-md">
               Master the science of traditional yoga with structured, authentic education from VYASA Bangalore.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

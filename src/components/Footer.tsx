@@ -14,7 +14,7 @@ const Footer = () => {
             
             {/* Brand Section */}
             <div className="space-y-8">
-              <Link to="/" className="inline-flex items-center space-x-3 group">
+              <Link to="/" className="inline-flex items-center space-x-2 group">
                 <img 
                   src="/lovable-uploads/3bcb5bc0-6609-4a3b-bf82-a55a431e6ac7.png" 
                   alt="Sparsh Yoga Logo" 
@@ -24,7 +24,7 @@ const Footer = () => {
                   <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
                     Sparsh
                   </span>
-                  <span className="text-xl text-foreground/90 ml-1" style={{ fontFamily: 'Manrope, sans-serif' }}>
+                  <span className="text-2xl text-foreground/90 ml-1" style={{ fontFamily: 'Manrope, sans-serif' }}>
                     Yoga
                   </span>
                 </div>

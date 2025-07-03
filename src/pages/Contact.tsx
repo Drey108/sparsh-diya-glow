@@ -54,7 +54,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground text-lg mb-1">WhatsApp</h3>
                     <div className="space-y-2">
-                      <p className="text-muted-foreground">+91 97409 27213</p>
+                      <p className="text-muted-foreground">+91 97409 27213 (Instant)</p>
+                      <p className="text-muted-foreground">+91 90195 28675</p>
                       <Button 
                         variant="outline" 
                         className="border-green-500 text-green-600 hover:bg-green-500 hover:text-white"

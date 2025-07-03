@@ -63,11 +63,13 @@ const YogaInstructorCourse = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center">
+      <section className="relative h-screen flex items-center">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/lovable-uploads/22ee7464-da5e-4405-9c81-f4766e33485d.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>

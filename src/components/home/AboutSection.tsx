@@ -83,10 +83,14 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+
+
         <div className="text-center mb-16">
           <h2 className="section-title text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 sm:mb-6">
             🌿 About Us
           </h2>
+
+          
           <p className="hero-subtitle text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
             Located in the heart of JP Nagar, Bangalore, Sparsh Yoga is your sanctuary for 
             wellness and spiritual growth. We believe in making yoga accessible to everyone.

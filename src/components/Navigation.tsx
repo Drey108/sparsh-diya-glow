@@ -23,6 +23,11 @@ const Navigation = () => {
       path: '/services'
     },
     {
+      name: 'Gallery',
+      path: '/Gallery',
+      shortName: 'gallery'
+    },
+    {
       name: 'Yoga Instructor Course',
       path: '/YIC',
       shortName: 'YIC'

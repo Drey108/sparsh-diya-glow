@@ -66,7 +66,7 @@ const YogaInstructorCourse = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/22ee7464-da5e-4405-9c81-f4766e33485d.png')`,
+            backgroundImage: `url('/lovable-uploads/d3bb987f-cb6b-4f9e-ac13-dcd8656fcb15.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
@@ -82,10 +82,10 @@ const YogaInstructorCourse = () => {
                 (YIC)
               </span>
             </h1>
-            <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light drop-shadow-md">
+            <p className="text-2xl sm:text-3xl text-white/90 mb-4 font-light drop-shadow-lg">
               Transform Your Passion Into Purpose – Enroll in YIC Today
             </p>
-            <p className="text-lg sm:text-xl text-white/80 mb-12 leading-relaxed drop-shadow-md">
+            <p className="text-lg sm:text-xl text-white/80 mb-12 leading-relaxed drop-shadow-lg">
               Master the science of traditional yoga with structured, authentic education from VYASA Bangalore.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

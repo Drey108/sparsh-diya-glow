@@ -23,10 +23,6 @@ const Navigation = () => {
       path: '/services'
     },
     {
-      name: 'Gallery',
-      path: '/gallery'
-    },
-    {
       name: 'Yoga Instructor Course',
       path: '/YIC',
       shortName: 'YIC'
@@ -34,7 +30,6 @@ const Navigation = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
-  const isHeroPage = location.pathname === '/' || location.pathname === '/YIC';
 
   // Handle scroll effect
   useEffect(() => {
@@ -46,17 +41,9 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Determine navigation style
-  const getNavStyle = () => {
-    if (isHeroPage && !isScrolled) {
-      return 'bg-white/95 border border-white/30 shadow-lg';
-    }
-    return 'backdrop-blur-md bg-white/60 border border-white/20 shadow-lg';
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4">
-      <nav className={`max-w-7xl mx-auto ${getNavStyle()} rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4`}>
+      <nav className="max-w-7xl mx-auto backdrop-blur-md bg-white/60 border border-white/20 shadow-lg rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">

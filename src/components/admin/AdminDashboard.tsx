@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Upload, Grid2x2, Grid3x3, Grid2x2Check } from 'lucide-react';
+import { Grid2x2, Grid3x3, Grid2x2Check, Upload } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { data: stats, isLoading } = useQuery({
@@ -106,28 +104,6 @@ const AdminDashboard = () => {
           </CardContent>
         </Card>
       </div>
-
-      {/* Quick Actions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Common tasks to manage your gallery</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-3">
-          <Button>
-            <Upload className="mr-2 h-4 w-4" />
-            Upload New Media
-          </Button>
-          <Button variant="outline">
-            <Grid2x2 className="mr-2 h-4 w-4" />
-            Manage Categories
-          </Button>
-          <Button variant="outline">
-            <Grid3x3 className="mr-2 h-4 w-4" />
-            View Gallery
-          </Button>
-        </CardContent>
-      </Card>
 
       {/* Recent Items */}
       <Card>
